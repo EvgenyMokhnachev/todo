@@ -43,7 +43,7 @@ List.prototype.createDOM = function(){
             addError(inputBlock);
         } else {
             var todoText = inputBlock.value;
-            todoService.insert(todoText, self.id,function(todoItem){
+            todoService.insert(todoText, self.id, function(todoItem){
                 self.resultBlock.appendChild(todoItem.createDOM());
                 initializationPlugin();
             });
@@ -65,5 +65,13 @@ List.prototype.settingsNameBlock = function(nameBlock){
 
     };
     return nameBlock;
+};
+
+List.prototype.getListObject = function(){
+    var self = this;
+    return {
+        id: self.id,
+        name: self.name
+    };
 };
 

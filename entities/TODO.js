@@ -141,3 +141,12 @@ TODO. prototype.settingEditForm = function(editForm){
     };
     return editForm;
 };
+
+TODO.prototype.getTodoObject = function(){
+    var self = this;
+    return {
+        id: self.id,
+        text: self.text,
+        elementId: self.elementId
+    };
+};
