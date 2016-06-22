@@ -28,11 +28,11 @@
         </div>
     </div>
     <script type="text/javascript" src="config.js"></script>
-    <script type="text/javascript" src="entities/DataBaseManager.js"></script>
-    <script type="text/javascript" src="entities/List.js"></script>
-    <script type="text/javascript" src="entities/ListService.js"></script>
-    <script type="text/javascript" src="entities/TODO.js"></script>
-    <script type="text/javascript" src="entities/TODOService.js"></script>
+    <script type="text/javascript" src="js/manager/DataBaseManager.js"></script>
+    <script type="text/javascript" src="js/entities/List.js"></script>
+    <script type="text/javascript" src="js/service/ListService.js"></script>
+    <script type="text/javascript" src="js/entities/TODO.js"></script>
+    <script type="text/javascript" src="js/service/TODOService.js"></script>
     <script type="text/javascript" src="main.js"></script>
 </body>
 </html>
