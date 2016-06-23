@@ -122,6 +122,8 @@ input[type='text'] {
     margin: 5px 0 10px 0;
     line-height: 1;
     text-transform: uppercase; }
+  .listBlock h2 > .deleteBtn, .listBlock a {
+    margin-left: 10px; }
   .listBlock .createTodo {
     overflow: auto; }
     .listBlock .createTodo input {
@@ -167,6 +169,8 @@ input[type='text'] {
   color: #475965;
   font-size: 14px;
   padding-right: 10px; }
+  .todoItem span.checked {
+    text-decoration: line-through; }
 
 .deleteBtn {
   position: relative;

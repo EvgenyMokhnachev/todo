@@ -1,7 +1,8 @@
-function TODO (id, text, elementId){
+function TODO (id, text, elementId, checked){
     this.id = id;
     this.text = text;
     this.elementId = elementId;
+    this.isChecked = checked;
     this.DOMObject = undefined;
     this.DOMTextObject = undefined;
 }
@@ -12,8 +13,11 @@ TODO.prototype.createDOM = function(){
         todoItem.setAttribute('class', 'todoItem');
     var checkBoxBlock = document.createElement('div');
         todoItem.appendChild(self.settingCheckboxBloc(checkBoxBlock));
-    this.DOMTextObject = document.createElement('span');
-    this.DOMTextObject.innerHTML = this.text;
+    self.DOMTextObject = document.createElement('span');
+    if(self.isChecked == 1){
+        self.DOMTextObject.setAttribute('class', 'checked');
+    }
+    self.DOMTextObject.innerHTML = self.text;
     todoItem.appendChild(this.DOMTextObject);
     var editBtn = document.createElement('a');
         todoItem.appendChild(self.settingEditBtn(editBtn));
@@ -83,7 +87,23 @@ TODO.prototype.settingCheckboxBloc = function(checkBoxBlock){
     var checkBox = document.createElement('input');
     checkBox.setAttribute('type', 'checkbox');
     checkBox.setAttribute('id', 'todo'+self.id);
+    if(self.isChecked == 1){
+        checkBox.checked = true;
+    }
     checkBoxBlock.appendChild(checkBox);
+
+    checkBox.onchange = function(){
+        //TODO checkbox
+        var checkBoxSelf = this;
+        if(checkBoxSelf.checked){
+            checkBoxSelf.parentElement.nextElementSibling.setAttribute('class', 'checked');
+            self.isChecked = 1; // true
+        }else{
+            checkBoxSelf.parentElement.nextElementSibling.setAttribute('class', '');
+            self.isChecked = 0; //false
+        }
+        todoService.updateChecked(self);
+    };
 
     var labelItem = document.createElement('label');
     labelItem.setAttribute('for', 'todo'+self.id);
@@ -147,6 +167,7 @@ TODO.prototype.getTodoObject = function(){
     return {
         id: self.id,
         text: self.text,
-        elementId: self.elementId
+        elementId: self.elementId,
+        isChecked: self.isChecked
     };
 };

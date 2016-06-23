@@ -59,10 +59,12 @@ List.prototype.settingsNameBlock = function(nameBlock){
     var self = this;
     nameBlock.innerHTML = self.name;
     var deleteBtn = document.createElement('a');
-    deleteBtn.setAttribute('class', 'delete');
+    deleteBtn.setAttribute('class', 'deleteBtn');
     nameBlock.appendChild(deleteBtn);
     deleteBtn.onclick = function(){
-
+        listService.removeList(self);
+        self.DOMObject.remove();
+        initializationPlugin();
     };
     return nameBlock;
 };

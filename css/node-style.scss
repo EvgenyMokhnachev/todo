@@ -187,6 +187,9 @@ input[type='text']{
   h2{
     @include H-text(16px);
   }
+  h2 > .deleteBtn, a{
+    margin-left: 10px;
+  }
   .createTodo{
     overflow: auto;
     input{
@@ -236,6 +239,9 @@ input[type='text']{
   span{
     @include text();
     padding-right: 10px;
+    &.checked{
+      text-decoration: line-through;
+    }
   }
 }
 .deleteBtn{

@@ -11,7 +11,7 @@ ListService.prototype.selectList = function(){
                     var listRow = result.rows[resultIndex++];
                     var listItem = new List(listRow.rowid, listRow.todo_name);
                     NoteBlock.appendChild(listItem.createDOM());
-                    todoService.selectAll(listRow.rowid, listItem);
+                    todoService.selectAll(listItem);
                 }
             });
         })
@@ -48,5 +48,30 @@ ListService.prototype.insert = function(new_text){
         list_mass[list_mass.length] = listItem.getListObject();
         localStorage.setItem('todo_list', JSON.stringify(list_mass));
         initializationPlugin();
+    }
+};
+
+ListService.prototype.removeList = function(listItem){
+    var connect = this.db.getConn();
+    if(connect){
+        connect.transaction(function (tx) {
+            tx.executeSql('DELETE FROM todo_element WHERE rowid=' +listItem.id, [], function(){
+                //console.log('Удаление прошло удачно');
+                todoService.removeTodoList(listItem.id);
+            }, function(){
+                //console.log('Удаление прошло НЕ удачно');
+            });
+        })
+    }else{
+        var list_mass = JSON.parse(localStorage.getItem('todo_list'));
+        todoService.removeTodoList(listItem.id);
+        for(var i=0; i< list_mass.length; i++){
+            if(list_mass[i].id == listItem.id){
+                list_mass.splice(i, 1);
+                break;
+            }
+        }
+        localStorage.todo_list = JSON.stringify(list_mass);
+
     }
 };
