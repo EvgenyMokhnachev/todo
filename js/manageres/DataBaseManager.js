@@ -37,6 +37,7 @@ var DBManager = (function(){
 
                 localStorage.setItem('next_list', JSON.stringify(0));
                 localStorage.setItem('next_element', JSON.stringify(0));
+                localStorage.setItem('next_category', JSON.stringify(0));
             }
         }
     };

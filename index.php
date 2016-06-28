@@ -19,7 +19,7 @@
         <div class=" buttonLeft">
             <button type="button" id="AddList"></button>
             <button type="button" id="AllCategory" class="categoryBtn all active"></button>
-            <div id="newCategoty"></div>
+            <div id="newCategory"></div>
             <button type="button" id="AddCategory" class="categoryBtn add"></button>
         </div>
         <div id="notes"></div>
@@ -27,15 +27,47 @@
     <div class="fonPopUp" id="popUp">
         <div class="popUp">
             <h3>Create new list todo</h3>
-            <button type="button" id="closePopUp"></button>
+            <button type="button" id="closePopUp" class="closeBtn"></button>
             <input id="newList" type="text" />
             <button type="button" id="createList">Create</button>
         </div>
     </div>
     <div class="fonPopUp" id="categoryUp">
         <div class="popUp">
-            <h3>Create new category</h3>
-            <button type="button" id="closePopUpCategory"></button>
+            <form>
+                <h3>Create new category</h3>
+                <button type="button" id="closePopUpCategory" class="closeBtn"></button>
+                <input id="newCategory" type="text" />
+                <p>Select Color</p>
+                <div class="colorBlock">
+                    <div class="radioBoxBlock"><input type="radio" name="color" id="emptiness"><label for="emptiness"></label></div>
+                    <div class="radioBoxBlock"><input type="radio" name="color" id="swuff"><label for="swuff"></label></div>
+                    <div class="radioBoxBlock"><input type="radio" name="color" id="radical"><label for="radical"></label></div>
+                    <div class="radioBoxBlock"><input type="radio" name="color" id="cinnabar"><label for="cinnabar"></label></div>
+                    <div class="radioBoxBlock"><input type="radio" name="color" id="emerald"><label for="emerald"></label></div>
+                    <div class="radioBoxBlock"><input type="radio" name="color" id="saffron"><label for="saffron"></label></div>
+                    <div class="radioBoxBlock"><input type="radio" name="color" id="california"><label for="california"></label></div>
+                    <div class="radioBoxBlock"><input type="radio" name="color" id="turquoise"><label for="turquoise"></label></div>
+                </div>
+    <!--            <div class="colorBlock">-->
+    <!--                -->
+    <!--            </div>-->
+                <p>Select image</p>
+                <div class="colorBlock">
+                    <div class="radioBoxBlock"><input type="radio" name="image" id="house"><label for="house"></label></div>
+                    <div class="radioBoxBlock"><input type="radio" name="image" id="idea"><label for="idea"></label></div>
+                    <div class="radioBoxBlock"><input type="radio" name="image" id="like"><label for="like"></label></div>
+                    <div class="radioBoxBlock"><input type="radio" name="image" id="paper"><label for="paper"></label></div>
+                    <div class="radioBoxBlock"><input type="radio" name="image" id="photo"><label for="photo"></label></div>
+                    <div class="radioBoxBlock"><input type="radio" name="image" id="car"><label for="car"></label></div>
+                    <div class="radioBoxBlock"><input type="radio" name="image" id="bike"><label for="bike"></label></div>
+                    <div class="radioBoxBlock"><input type="radio" name="image" id="pizza"><label for="pizza"></label></div>
+                </div>
+    <!--            <div class="colorBlock">-->
+    <!--                -->
+    <!--            </div>-->
+                <button type="submit" id="createCategory">Create</button>
+            </form>
         </div>
     </div>
     <script type="text/javascript" src="config.js"></script>
