@@ -33,60 +33,6 @@ input:focus, button:focus {
   position: relative;
   padding-bottom: 20px; }
 
-#AddList {
-  background-image: url("../images/add-button.png");
-  background-color: #21b8c6;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 50px;
-  height: 50px;
-  border: none;
-  border-radius: 50%;
-  position: fixed;
-  top: 15px;
-  left: 10px;
-  -webkit-transition-property: background-color;
-  -moz-transition-property: background-color;
-  -o-transition-property: background-color;
-  transition-property: background-color;
-  -webkit-transition-duration: 0.5s;
-  -moz-transition-duration: 0.5s;
-  -o-transition-duration: 0.5s;
-  transition-duration: 0.5s;
-  -webkit-transition-delay: 0.1s;
-  -moz-transition-delay: 0.1s;
-  -ms-transition-delay: 0.1s;
-  -o-transition-delay: 0.1s;
-  transition-delay: 0.1s;
-  -webkit-transition-timing-function: "ease-in";
-  -moz-transition-timing-function: "ease-in";
-  -ms-transition-timing-function: "ease-in";
-  -o-transition-timing-function: "ease-in";
-  transition-timing-function: "ease-in";
-  -webkit-transition-property: box-shadow;
-  -moz-transition-property: box-shadow;
-  -o-transition-property: box-shadow;
-  transition-property: box-shadow;
-  -webkit-transition-duration: 0.2s;
-  -moz-transition-duration: 0.2s;
-  -o-transition-duration: 0.2s;
-  transition-duration: 0.2s;
-  -webkit-transition-delay: 0.1s;
-  -moz-transition-delay: 0.1s;
-  -ms-transition-delay: 0.1s;
-  -o-transition-delay: 0.1s;
-  transition-delay: 0.1s;
-  -webkit-transition-timing-function: "initial";
-  -moz-transition-timing-function: "initial";
-  -ms-transition-timing-function: "initial";
-  -o-transition-timing-function: "initial";
-  transition-timing-function: "initial"; }
-  #AddList:hover {
-    background-color: #239aa8;
-    cursor: pointer; }
-  #AddList:focus, #AddList:active {
-    box-shadow: 0 0 10px 2px #959fa9; }
-
 input[type='text'] {
   font-family: "OpenSans", sans-serif;
   color: #475965;
@@ -445,5 +391,106 @@ input[type='text'] {
       .fonPopUp .popUp #createList:hover {
         background: #239aa8;
         cursor: pointer; }
+
+.buttonLeft {
+  position: fixed;
+  height: 100vh;
+  width: 70px; }
+  .buttonLeft #AddList {
+    background-image: url("../images/add-button.png");
+    background-color: #21b8c6;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    display: block;
+    margin: 15px 10px 10px;
+    -webkit-transition-property: background-color;
+    -moz-transition-property: background-color;
+    -o-transition-property: background-color;
+    transition-property: background-color;
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    -webkit-transition-delay: 0.1s;
+    -moz-transition-delay: 0.1s;
+    -ms-transition-delay: 0.1s;
+    -o-transition-delay: 0.1s;
+    transition-delay: 0.1s;
+    -webkit-transition-timing-function: "ease-in";
+    -moz-transition-timing-function: "ease-in";
+    -ms-transition-timing-function: "ease-in";
+    -o-transition-timing-function: "ease-in";
+    transition-timing-function: "ease-in";
+    -webkit-transition-property: box-shadow;
+    -moz-transition-property: box-shadow;
+    -o-transition-property: box-shadow;
+    transition-property: box-shadow;
+    -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    -o-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    -webkit-transition-delay: 0.1s;
+    -moz-transition-delay: 0.1s;
+    -ms-transition-delay: 0.1s;
+    -o-transition-delay: 0.1s;
+    transition-delay: 0.1s;
+    -webkit-transition-timing-function: "initial";
+    -moz-transition-timing-function: "initial";
+    -ms-transition-timing-function: "initial";
+    -o-transition-timing-function: "initial";
+    transition-timing-function: "initial"; }
+    .buttonLeft #AddList:hover {
+      background-color: #239aa8;
+      cursor: pointer; }
+    .buttonLeft #AddList:focus, .buttonLeft #AddList:active {
+      box-shadow: 0 0 10px 2px #959fa9; }
+  .buttonLeft .categoryBtn {
+    display: block;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin: 2px 10px 3px;
+    border: 0; }
+    .buttonLeft .categoryBtn.all {
+      background-image: url("/images/category/note.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 25px;
+      background-color: #fff; }
+      .buttonLeft .categoryBtn.all:hover, .buttonLeft .categoryBtn.all.active {
+        background-image: url("/images/category/note_1.png"); }
+    .buttonLeft .categoryBtn.add {
+      background-image: url("/images/category/add-button.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 25px;
+      background-color: #fff; }
+      .buttonLeft .categoryBtn.add:hover {
+        background-image: url("/images/add-green.png"); }
+    .buttonLeft .categoryBtn:hover, .buttonLeft .categoryBtn.active {
+      cursor: pointer;
+      border-bottom-left-radius: 50%;
+      border-bottom-right-radius: 50%;
+      border-top-left-radius: 50%;
+      border-top-right-radius: 50%;
+      -moz-border-radius-bottomleft: 50%;
+      -moz-border-radius-bottomright: 50%;
+      -moz-border-radius-topleft: 50%;
+      -moz-border-radius-topright: 50%;
+      -webkit-border-top-left-radius: 50%;
+      -webkit-border-bottom-left-radius: 50%;
+      -webkit-border-bottom-right-radius: 50%;
+      -webkit-border-top-right-radius: 50%;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 25px;
+      background-color: #d7dde2; }
+    .buttonLeft .categoryBtn #newCategoty {
+      position: relative;
+      width: 100%; }
 
 /*# sourceMappingURL=node-style.css.map */

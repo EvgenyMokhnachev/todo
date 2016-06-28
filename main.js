@@ -1,9 +1,11 @@
-
 var NoteBlock = document.getElementById('notes');
+var categoryBlock = document.getElementById('newCategoty');
 //var resultBlock = document.getElementById('result');
 
 var listService = new ListService();
 var todoService = new TODOService();
+var categoryService = new CategoryService();
+
 //todoService.selectAll();
 listService.selectList();
 
@@ -23,11 +25,15 @@ var oldClassContainer = document.getElementsByClassName('container')[0].getAttri
 
 document.getElementById('AddList').onclick = function(){
     //TODO анимация открытия PopUp
-    //inputList.setAttribute('autofocus', 'autofocus');
-
     document.getElementsByClassName('container')[0].setAttribute('class', oldClassContainer+' openPopUp');
     document.getElementById('popUp').style.display = 'block';
     inputList.focus();
+};
+
+document.getElementById('AddCategory').onclick = function(){
+    //TODO анимация открытия PopUp
+    document.getElementsByClassName('container')[0].setAttribute('class', oldClassContainer+' openPopUp');
+    document.getElementById('categoryUp').style.display = 'block';
 };
 
 document.getElementById('createList').onclick = function(){
@@ -51,6 +57,10 @@ document.getElementById('closePopUp').onclick = function(){
     inputList.value = '';
     document.getElementsByClassName('container')[0].setAttribute('class', oldClassContainer);
     document.getElementById('popUp').style.display = 'none';
+};
+
+document.getElementById('closePopUpCategory').onclick = function(){
+
 };
 
 

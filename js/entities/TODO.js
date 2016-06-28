@@ -93,7 +93,6 @@ TODO.prototype.settingCheckboxBloc = function(checkBoxBlock){
     checkBoxBlock.appendChild(checkBox);
 
     checkBox.onchange = function(){
-        //TODO checkbox
         var checkBoxSelf = this;
         if(checkBoxSelf.checked){
             checkBoxSelf.parentElement.nextElementSibling.setAttribute('class', 'checked');

@@ -16,7 +16,12 @@
 </head>
 <body>
     <div class="container">
-        <button type="button" id="AddList"></button>
+        <div class=" buttonLeft">
+            <button type="button" id="AddList"></button>
+            <button type="button" id="AllCategory" class="categoryBtn all active"></button>
+            <div id="newCategoty"></div>
+            <button type="button" id="AddCategory" class="categoryBtn add"></button>
+        </div>
         <div id="notes"></div>
     </div>
     <div class="fonPopUp" id="popUp">
@@ -27,8 +32,16 @@
             <button type="button" id="createList">Create</button>
         </div>
     </div>
+    <div class="fonPopUp" id="categoryUp">
+        <div class="popUp">
+            <h3>Create new category</h3>
+            <button type="button" id="closePopUpCategory"></button>
+        </div>
+    </div>
     <script type="text/javascript" src="config.js"></script>
     <script type="text/javascript" src="js/manageres/DataBaseManager.js"></script>
+    <script type="text/javascript" src="js/entities/Category.js"></script>
+    <script type="text/javascript" src="js/services/CategoryService.js"></script>
     <script type="text/javascript" src="js/entities/List.js"></script>
     <script type="text/javascript" src="js/services/ListService.js"></script>
     <script type="text/javascript" src="js/entities/TODO.js"></script>
