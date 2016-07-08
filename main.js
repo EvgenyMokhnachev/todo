@@ -17,12 +17,15 @@ var oldClassContainer = document.getElementsByClassName('container')[0].getAttri
 
 document.getElementById('AddList').onclick = function(){
     //TODO анимация открытия PopUp
+    var popUp = document.getElementById('popUp');
     document.getElementsByClassName('container')[0].setAttribute('class', oldClassContainer+' openPopUp');
-    document.getElementById('popUp').style.display = 'block';
-    var selected = new SelectObject('selectCategory');
-    document.getElementById('categorySelect').appendChild(selected.createView());
-    categoryService.inputSelect(selected.optionId);
-    selected.selectOption();
+    popUp.style.display = 'block';
+    if(popUp.getElementsByClassName('selected').length == 0){
+        var selected = new SelectObject('selectCategory');
+        document.getElementById('categorySelect').appendChild(selected.createView());
+        categoryService.inputSelect(selected.optionId);
+        selected.selectOption();
+    }
     inputList.focus();
 };
 

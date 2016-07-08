@@ -14,7 +14,6 @@ CategoryService.prototype.insertCategory = function(name, color, image){
             },function(){alert('error')});
         })
     }else{
-        //TODO localstorage insert category
         var category_mass = JSON.parse(localStorage.getItem('todo_category'));
         var next_category = JSON.parse(localStorage.getItem('next_category'))+1;
         localStorage.next_category = next_category;
@@ -28,8 +27,16 @@ CategoryService.prototype.insertCategory = function(name, color, image){
 CategoryService.prototype.selectAll = function(){
     var connect = this.db.getConn();
     if(connect){
-        //TODO webSQL select category
-
+        connect.transaction(function (tx) {
+            tx.executeSql('SELECT rowid, cat_name, cat_color, cat_image FROM category', [], function (tranzaction, result) {
+                var resultIndex = 0;
+                while(resultIndex < result.rows.length && result.rows[resultIndex]){
+                    var categoryRow = result.rows[resultIndex++];
+                    var categoryItem = new Category(categoryRow.id, categoryRow.name, categoryRow.color, categoryRow.image);
+                    categoryBlock.appendChild(categoryItem.createDOM());
+                }
+            },function(){alert('error')});
+        })
     }else{
         var category_mass = JSON.parse(localStorage.getItem('todo_category'));
         if(category_mass.length > 0){
@@ -44,11 +51,20 @@ CategoryService.prototype.selectAll = function(){
 
 CategoryService.prototype.inputSelect = function(id){
     var connect = this.db.getConn();
+    var selectCategory = document.getElementById(id);
     if(connect){
-        //TODO webSQL select category input
+        connect.transaction(function (tx) {
+            tx.executeSql('SELECT rowid, cat_name, cat_color, cat_image FROM category', [], function (tranzaction, result) {
+                var resultIndex = 0;
+                while(resultIndex < result.rows.length && result.rows[resultIndex]){
+                    var categoryRow = result.rows[resultIndex++];
+                    var categoryItem = new Category(categoryRow.id, categoryRow.name, categoryRow.color, categoryRow.image);
+                    selectCategory.appendChild(categoryItem.createSelectDOM());
+                }
+            },function(){alert('error')});
+        })
     }else{
         var category_mass = JSON.parse(localStorage.getItem('todo_category'));
-        var selectCategory = document.getElementById(id);
         if(category_mass.length > 0){
             for(var i=0; i< category_mass.length; i++){
                 var categoryRow = category_mass[i];

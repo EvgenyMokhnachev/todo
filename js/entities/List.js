@@ -1,6 +1,7 @@
 function List(id, name){
     this.id = id;
     this.name = name;
+
     this.DOMObject = undefined;
     this.resultBlock = undefined;
 }
