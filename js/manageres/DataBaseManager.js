@@ -25,7 +25,7 @@ var DBManager = (function(){
         var connect = this.getConn();
         if(connect){
             connect.transaction(function(tx){
-                tx.executeSql('CREATE TABLE IF NOT EXISTS todo_list (element_id, todo_text, todo_checked)');
+                tx.executeSql('CREATE TABLE IF NOT EXISTS todo_list (element_id, todo_text, todo_checked, category_id)');
                 tx.executeSql('CREATE TABLE IF NOT EXISTS todo_element (todo_name)');
                 tx.executeSql('CREATE TABLE IF NOT EXISTS category (cat_name, cat_color, cat_image)');
             });

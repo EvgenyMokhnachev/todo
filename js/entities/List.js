@@ -21,7 +21,7 @@ List.prototype.createDOM = function(){
     var inputBlock = document.createElement('input');
     inputBlock.setAttribute('type', 'text');
     inputBlock.oninput = function(){
-        removeError(inputBlock);
+        removeClass(inputBlock, 'error');
     };
     formBlock.appendChild(inputBlock);
 

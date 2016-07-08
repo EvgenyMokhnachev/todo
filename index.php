@@ -6,6 +6,7 @@
 <!--    <link rel="stylesheet" type="text/css" href="style.css" />-->
 <!--    <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">-->
     <link rel="stylesheet" type="text/css" href="css/node-style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/select.css"/>
 
     <script type="text/javascript" src="/lib/jquery.min.js"></script>
     <script type="text/javascript" src="/lib/jquery-ui.min.js"></script>
@@ -29,6 +30,14 @@
             <h3>Create new list todo</h3>
             <button type="button" id="closePopUp" class="closeBtn"></button>
             <input id="newList" type="text" />
+            <p>Select category</p>
+            <div id="categorySelect"></div>
+<!--            <div class="selectBlock">-->
+<!--                <div class="selected">-->
+<!--                    <div class="button"></div>-->
+<!--                </div>-->
+<!--                <div class="option" id="selectCategory"></div>-->
+<!--            </div>-->
             <button type="button" id="createList">Create</button>
         </div>
     </div>
@@ -71,6 +80,7 @@
         </div>
     </div>
     <script type="text/javascript" src="config.js"></script>
+    <script type="text/javascript" src="js/select/select.js"></script>
     <script type="text/javascript" src="js/manageres/DataBaseManager.js"></script>
     <script type="text/javascript" src="js/entities/Category.js"></script>
     <script type="text/javascript" src="js/services/CategoryService.js"></script>

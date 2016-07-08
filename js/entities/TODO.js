@@ -150,7 +150,7 @@ TODO. prototype.settingEditForm = function(editForm){
     editForm.appendChild(saveBtn);
 
     editInput.oninput = function(){
-        removeError(editInput);
+        removeClass(editInput, 'error');
     };
 
     editForm.onsubmit = function(){

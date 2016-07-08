@@ -448,9 +448,11 @@ input[type='text'] {
   display: none;
   overflow: auto; }
   .fonPopUp#popUp .popUp {
-    height: 200px;
+    height: 250px;
     width: 300px;
     top: 25%; }
+    .fonPopUp#popUp .popUp #newList {
+      margin-bottom: 10px; }
   .fonPopUp#categoryUp .popUp {
     height: 365px;
     width: 540px;
@@ -520,6 +522,7 @@ input[type='text'] {
       height: 50px;
       margin-bottom: 10px; }
     .fonPopUp .popUp #createList, .fonPopUp .popUp #createCategory {
+      margin-top: 10px;
       width: 100%;
       font-family: "OpenSans-Bold", sans-serif;
       color: #fff;
@@ -873,4 +876,369 @@ input[type='text'] {
       position: relative;
       width: 100%; }
 
-/*# sourceMappingURL=node-style.css.map */
+.selectBlock {
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  max-height: 100%;
+  margin-bottom: 10px; }
+  .selectBlock .selected {
+    height: 30px;
+    width: 100%;
+    border: 1px solid #d7dde2;
+    border-bottom-left-radius: 1px;
+    border-bottom-right-radius: 1px;
+    border-top-left-radius: 1px;
+    border-top-right-radius: 1px;
+    -moz-border-radius-bottomleft: 1px;
+    -moz-border-radius-bottomright: 1px;
+    -moz-border-radius-topleft: 1px;
+    -moz-border-radius-topright: 1px;
+    -webkit-border-top-left-radius: 1px;
+    -webkit-border-bottom-left-radius: 1px;
+    -webkit-border-bottom-right-radius: 1px;
+    -webkit-border-top-right-radius: 1px;
+    box-sizing: border-box; }
+    .selectBlock .selected span {
+      width: 207px;
+      height: 100%;
+      display: inline-block;
+      overflow: hidden;
+      font-family: "OpenSans", sans-serif;
+      color: #475965;
+      font-size: 14px;
+      line-height: 26px; }
+      .selectBlock .selected span img {
+        float: left;
+        overflow: hidden;
+        width: 25px;
+        padding: 2px 6px 0 10px; }
+    .selectBlock .selected .button {
+      float: right;
+      overflow: hidden;
+      height: 28px;
+      width: 30px;
+      border-left: 1px solid #d7dde2;
+      background-image: url("../images/down-arrow.png");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 60%; }
+      .selectBlock .selected .button:hover {
+        cursor: pointer;
+        margin: -1px -1px 0 0;
+        border: 1px solid #21b8c6;
+        background-image: url("../images/down-arrow-main.png"); }
+    .selectBlock .selected.active {
+      border-color: #959fa9; }
+      .selectBlock .selected.active .button {
+        border-left-color: #959fa9;
+        background-image: url("../images/down-arrow-active.png"); }
+  .selectBlock .option {
+    display: none;
+    position: absolute;
+    top: 30px;
+    min-height: 100%;
+    width: 100%;
+    background-color: #fff; }
+    .selectBlock .option.open {
+      display: block; }
+    .selectBlock .option div {
+      height: 35px;
+      line-height: 2.3em;
+      font-family: "OpenSans", sans-serif;
+      color: #475965;
+      font-size: 14px;
+      padding: 0 15px;
+      margin: 5px 0;
+      overflow: hidden; }
+      .selectBlock .option div .text {
+        display: inline-block;
+        vertical-align: top;
+        line-height: 35px;
+        padding-left: 10px;
+        word-break: break-all;
+        width: 78%; }
+      .selectBlock .option div .img {
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+        border-bottom-left-radius: 50%;
+        border-bottom-right-radius: 50%;
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+        -moz-border-radius-bottomleft: 50%;
+        -moz-border-radius-bottomright: 50%;
+        -moz-border-radius-topleft: 50%;
+        -moz-border-radius-topright: 50%;
+        -webkit-border-top-left-radius: 50%;
+        -webkit-border-bottom-left-radius: 50%;
+        -webkit-border-bottom-right-radius: 50%;
+        -webkit-border-top-right-radius: 50%; }
+        .selectBlock .option div .img.emptiness {
+          background-color: rgba(255, 255, 255, 0); }
+        .selectBlock .option div .img.swuff {
+          background-color: #DCC6E0; }
+        .selectBlock .option div .img.radical {
+          background-color: #F62459; }
+        .selectBlock .option div .img.cinnabar {
+          background-color: #E74C3C; }
+        .selectBlock .option div .img.emerald {
+          background-color: #3FC380; }
+        .selectBlock .option div .img.saffron {
+          background-color: #F4D03F; }
+        .selectBlock .option div .img.california {
+          background-color: #F89406; }
+        .selectBlock .option div .img.turquoise {
+          background-color: #4ECDC4; }
+        .selectBlock .option div .img.house {
+          background-image: url("/images/category/house_white.png");
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: 60%;
+          -webkit-transition-property: "all";
+          -moz-transition-property: "all";
+          -o-transition-property: "all";
+          transition-property: "all";
+          -webkit-transition-duration: 0.3s;
+          -moz-transition-duration: 0.3s;
+          -o-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+          -webkit-transition-delay: 0.1s;
+          -moz-transition-delay: 0.1s;
+          -ms-transition-delay: 0.1s;
+          -o-transition-delay: 0.1s;
+          transition-delay: 0.1s;
+          -webkit-transition-timing-function: "initial";
+          -moz-transition-timing-function: "initial";
+          -ms-transition-timing-function: "initial";
+          -o-transition-timing-function: "initial";
+          transition-timing-function: "initial"; }
+          .selectBlock .option div .img.house.emptiness {
+            background-image: url("/images/category/house_gray.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 60%; }
+        .selectBlock .option div .img.idea {
+          background-image: url("/images/category/idea_white.png");
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: 60%;
+          -webkit-transition-property: "all";
+          -moz-transition-property: "all";
+          -o-transition-property: "all";
+          transition-property: "all";
+          -webkit-transition-duration: 0.3s;
+          -moz-transition-duration: 0.3s;
+          -o-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+          -webkit-transition-delay: 0.1s;
+          -moz-transition-delay: 0.1s;
+          -ms-transition-delay: 0.1s;
+          -o-transition-delay: 0.1s;
+          transition-delay: 0.1s;
+          -webkit-transition-timing-function: "initial";
+          -moz-transition-timing-function: "initial";
+          -ms-transition-timing-function: "initial";
+          -o-transition-timing-function: "initial";
+          transition-timing-function: "initial"; }
+          .selectBlock .option div .img.idea.emptiness {
+            background-image: url("/images/category/idea_gray.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 60%; }
+        .selectBlock .option div .img.like {
+          background-image: url("/images/category/like_white.png");
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: 60%;
+          -webkit-transition-property: "all";
+          -moz-transition-property: "all";
+          -o-transition-property: "all";
+          transition-property: "all";
+          -webkit-transition-duration: 0.3s;
+          -moz-transition-duration: 0.3s;
+          -o-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+          -webkit-transition-delay: 0.1s;
+          -moz-transition-delay: 0.1s;
+          -ms-transition-delay: 0.1s;
+          -o-transition-delay: 0.1s;
+          transition-delay: 0.1s;
+          -webkit-transition-timing-function: "initial";
+          -moz-transition-timing-function: "initial";
+          -ms-transition-timing-function: "initial";
+          -o-transition-timing-function: "initial";
+          transition-timing-function: "initial"; }
+          .selectBlock .option div .img.like.emptiness {
+            background-image: url("/images/category/like_gray.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 60%; }
+        .selectBlock .option div .img.paper {
+          background-image: url("/images/category/paper_white.png");
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: 60%;
+          -webkit-transition-property: "all";
+          -moz-transition-property: "all";
+          -o-transition-property: "all";
+          transition-property: "all";
+          -webkit-transition-duration: 0.3s;
+          -moz-transition-duration: 0.3s;
+          -o-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+          -webkit-transition-delay: 0.1s;
+          -moz-transition-delay: 0.1s;
+          -ms-transition-delay: 0.1s;
+          -o-transition-delay: 0.1s;
+          transition-delay: 0.1s;
+          -webkit-transition-timing-function: "initial";
+          -moz-transition-timing-function: "initial";
+          -ms-transition-timing-function: "initial";
+          -o-transition-timing-function: "initial";
+          transition-timing-function: "initial"; }
+          .selectBlock .option div .img.paper.emptiness {
+            background-image: url("/images/category/paper_gray.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 60%; }
+        .selectBlock .option div .img.photo {
+          background-image: url("/images/category/photo_white.png");
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: 60%;
+          -webkit-transition-property: "all";
+          -moz-transition-property: "all";
+          -o-transition-property: "all";
+          transition-property: "all";
+          -webkit-transition-duration: 0.3s;
+          -moz-transition-duration: 0.3s;
+          -o-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+          -webkit-transition-delay: 0.1s;
+          -moz-transition-delay: 0.1s;
+          -ms-transition-delay: 0.1s;
+          -o-transition-delay: 0.1s;
+          transition-delay: 0.1s;
+          -webkit-transition-timing-function: "initial";
+          -moz-transition-timing-function: "initial";
+          -ms-transition-timing-function: "initial";
+          -o-transition-timing-function: "initial";
+          transition-timing-function: "initial"; }
+          .selectBlock .option div .img.photo.emptiness {
+            background-image: url("/images/category/photo_gray.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 60%; }
+        .selectBlock .option div .img.car {
+          background-image: url("/images/category/car_white.png");
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: 60%;
+          -webkit-transition-property: "all";
+          -moz-transition-property: "all";
+          -o-transition-property: "all";
+          transition-property: "all";
+          -webkit-transition-duration: 0.3s;
+          -moz-transition-duration: 0.3s;
+          -o-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+          -webkit-transition-delay: 0.1s;
+          -moz-transition-delay: 0.1s;
+          -ms-transition-delay: 0.1s;
+          -o-transition-delay: 0.1s;
+          transition-delay: 0.1s;
+          -webkit-transition-timing-function: "initial";
+          -moz-transition-timing-function: "initial";
+          -ms-transition-timing-function: "initial";
+          -o-transition-timing-function: "initial";
+          transition-timing-function: "initial"; }
+          .selectBlock .option div .img.car.emptiness {
+            background-image: url("/images/category/car_gray.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 60%; }
+        .selectBlock .option div .img.bike {
+          background-image: url("/images/category/bike_white.png");
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: 60%;
+          -webkit-transition-property: "all";
+          -moz-transition-property: "all";
+          -o-transition-property: "all";
+          transition-property: "all";
+          -webkit-transition-duration: 0.3s;
+          -moz-transition-duration: 0.3s;
+          -o-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+          -webkit-transition-delay: 0.1s;
+          -moz-transition-delay: 0.1s;
+          -ms-transition-delay: 0.1s;
+          -o-transition-delay: 0.1s;
+          transition-delay: 0.1s;
+          -webkit-transition-timing-function: "initial";
+          -moz-transition-timing-function: "initial";
+          -ms-transition-timing-function: "initial";
+          -o-transition-timing-function: "initial";
+          transition-timing-function: "initial"; }
+          .selectBlock .option div .img.bike.emptiness {
+            background-image: url("/images/category/bike_gray.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 60%; }
+        .selectBlock .option div .img.pizza {
+          background-image: url("/images/category/pizza_white.png");
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: 60%;
+          -webkit-transition-property: "all";
+          -moz-transition-property: "all";
+          -o-transition-property: "all";
+          transition-property: "all";
+          -webkit-transition-duration: 0.3s;
+          -moz-transition-duration: 0.3s;
+          -o-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+          -webkit-transition-delay: 0.1s;
+          -moz-transition-delay: 0.1s;
+          -ms-transition-delay: 0.1s;
+          -o-transition-delay: 0.1s;
+          transition-delay: 0.1s;
+          -webkit-transition-timing-function: "initial";
+          -moz-transition-timing-function: "initial";
+          -ms-transition-timing-function: "initial";
+          -o-transition-timing-function: "initial";
+          transition-timing-function: "initial"; }
+          .selectBlock .option div .img.pizza.emptiness {
+            background-image: url("/images/category/pizza_gray.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 60%; }
+      .selectBlock .option div:hover {
+        cursor: pointer; }
+        .selectBlock .option div:hover .house {
+          background-image: url("/images/category/house_main.png");
+          background-color: #fff; }
+        .selectBlock .option div:hover .idea {
+          background-image: url("/images/category/idea_main.png");
+          background-color: #fff; }
+        .selectBlock .option div:hover .like {
+          background-image: url("/images/category/like_main.png");
+          background-color: #fff; }
+        .selectBlock .option div:hover .paper {
+          background-image: url("/images/category/paper_main.png");
+          background-color: #fff; }
+        .selectBlock .option div:hover .photo {
+          background-image: url("/images/category/photo_main.png");
+          background-color: #fff; }
+        .selectBlock .option div:hover .car {
+          background-image: url("/images/category/car_main.png");
+          background-color: #fff; }
+        .selectBlock .option div:hover .bike {
+          background-image: url("/images/category/bike_main.png");
+          background-color: #fff; }
+        .selectBlock .option div:hover .pizza {
+          background-image: url("/images/category/pizza_main.png");
+          background-color: #fff; }
+
+/*# sourceMappingURL=select.css.map */

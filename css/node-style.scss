@@ -69,7 +69,7 @@ $font-bold: 'OpenSans-Bold', sans-serif;
   font-size: 16px;
 
 }
-@mixin radius($leftTop, $rightTop, $rightBot, $leftBot){
+@mixin radius($leftTop, $rightTop: $leftTop, $rightBot: $leftTop, $leftBot:$leftTop){
   border-bottom-left-radius: $leftBot;
   border-bottom-right-radius: $rightBot;
   border-top-left-radius: $leftTop;
@@ -510,9 +510,12 @@ input[type='text']{
   overflow: auto;
 
   &#popUp .popUp{
-    height: 200px;
+    height: 250px;
     width: 300px;
     top: 25%;
+    #newList{
+      margin-bottom: 10px;
+    }
   }
   &#categoryUp .popUp{
     height: 365px;
@@ -559,6 +562,7 @@ input[type='text']{
     }
 
     #createList{
+      margin-top: 10px;
       width: 100%;
       @include buttonText();
       text-transform: uppercase;
@@ -620,20 +624,39 @@ input[type='text']{
   .categoryBtn{
     display: block;
     position: relative;
-    width: 50px;
-    height: 50px;
-    margin: 2px 10px 3px;
-    border: 0;
+    width: 45px;
+    height: 45px;
+    margin: 2px 15px 3px;
+    border: 1px solid temp-colors('white');
     @include backgroundBtn();
     @include radius(50%, 50%, 50%, 50%);
+
+    &.active:after{
+      position: absolute;
+      content: '';
+      width: 10px;
+      height: 10px;
+      top: 39%;
+      left: -11px;
+      background:{
+        image: url('/images/arrow.png');
+        repeat: no-repeat;
+        size:contain;
+      };
+    }
+    &:hover{
+      cursor: pointer;
+      border: 1px solid temp-colors('main');
+    }
 
     &.all{
       background:{
         image: url('/images/category/note.png');
+        color: temp-colors('emptiness');
       }
       //@include backgroundBtn(temp-colors('white'));
 
-      &:hover, &.active{
+      &:hover{
         background:{
           image: url('/images/category/note_1.png');
         }
@@ -643,6 +666,7 @@ input[type='text']{
     &.add{
       background:{
         image: url('/images/category/add-button.png');
+        color: temp-colors('emptiness');
       }
 
       &:hover{
@@ -676,10 +700,111 @@ input[type='text']{
       background-color: temp-colors('turquoise');
     }
 
-
-    &:hover, &.active{
-      cursor: pointer;
+    &.house{
+      &.emptiness{
+        background-image: url('/images/category/house_gray.png');
+      }
+      background-image: url('/images/category/house_white.png');
+      @include transition();
+      &:hover{
+        background:{
+          image: url('/images/category/house_main.png');
+          color: temp-colors('white');
+        }
+      }
     }
+    &.idea{
+      &.emptiness{
+        background-image: url('/images/category/idea_gray.png');
+      }
+      background-image: url('/images/category/idea_white.png');
+      @include transition();
+      &:hover{
+        background:{
+          image: url('/images/category/idea_main.png');
+          color: temp-colors('white');
+        }
+      }
+    }
+    &.like{
+      &.emptiness{
+        background-image: url('/images/category/like_gray.png');
+      }
+      background-image: url('/images/category/like_white.png');
+      @include transition();
+      &:hover{
+        background:{
+          image: url('/images/category/like_main.png');
+          color: temp-colors('white');
+        }
+      }
+    }
+    &.paper{
+      &.emptiness{
+        background-image: url('/images/category/paper_gray.png');
+      }
+      background-image: url('/images/category/paper_white.png');
+      @include transition();
+      &:hover{
+        background:{
+          image: url('/images/category/paper_main.png');
+          color: temp-colors('white');
+        }
+      }
+    }
+    &.photo{
+      &.emptiness{
+        background-image: url('/images/category/photo_gray.png');
+      }
+      background-image: url('/images/category/photo_white.png');
+      @include transition();
+      &:hover{
+        background:{
+          image: url('/images/category/photo_main.png');
+          color: temp-colors('white');
+        }
+      }
+    }
+    &.car{
+      &.emptiness{
+        background-image: url('/images/category/car_gray.png');
+      }
+      background-image: url('/images/category/car_white.png');
+      @include transition();
+      &:hover{
+        background:{
+          image: url('/images/category/car_main.png');
+          color: temp-colors('white');
+        }
+      }
+    }
+    &.bike{
+      &.emptiness{
+        background-image: url('/images/category/bike_gray.png');
+      }
+      background-image: url('/images/category/bike_white.png');
+      @include transition();
+      &:hover{
+        background:{
+          image: url('/images/category/bike_main.png');
+          color: temp-colors('white');
+        }
+      }
+    }
+    &.pizza{
+      &.emptiness{
+        background-image: url('/images/category/pizza_gray.png');
+      }
+      background-image: url('/images/category/pizza_white.png');
+      @include transition();
+      &:hover{
+        background:{
+          image: url('/images/category/pizza_main.png');
+          color: temp-colors('white');
+        }
+      }
+    }
+
 
     #newCategoty{
       position: relative;

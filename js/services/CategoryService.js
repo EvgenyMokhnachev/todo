@@ -28,7 +28,8 @@ CategoryService.prototype.insertCategory = function(name, color, image){
 CategoryService.prototype.selectAll = function(){
     var connect = this.db.getConn();
     if(connect){
-        //TODO websql select category
+        //TODO webSQL select category
+
     }else{
         var category_mass = JSON.parse(localStorage.getItem('todo_category'));
         if(category_mass.length > 0){
@@ -36,6 +37,23 @@ CategoryService.prototype.selectAll = function(){
                 var categoryRow = category_mass[i];
                 var categoryItem = new Category(categoryRow.id, categoryRow.name, categoryRow.color, categoryRow.image);
                 categoryBlock.appendChild(categoryItem.createDOM());
+            }
+        }
+    }
+};
+
+CategoryService.prototype.inputSelect = function(id){
+    var connect = this.db.getConn();
+    if(connect){
+        //TODO webSQL select category input
+    }else{
+        var category_mass = JSON.parse(localStorage.getItem('todo_category'));
+        var selectCategory = document.getElementById(id);
+        if(category_mass.length > 0){
+            for(var i=0; i< category_mass.length; i++){
+                var categoryRow = category_mass[i];
+                var categoryItem = new Category(categoryRow.id, categoryRow.name, categoryRow.color, categoryRow.image);
+                selectCategory.appendChild(categoryItem.createSelectDOM());
             }
         }
     }

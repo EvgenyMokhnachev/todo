@@ -1,12 +1,13 @@
 var NoteBlock = document.getElementById('notes');
 var categoryBlock = document.getElementById('newCategory');
-//var resultBlock = document.getElementById('result');
+//var selectCategory = document.getElementById('selectCategory');
+//var resultSelect = document.getElementById('resultSelect');
 
 var listService = new ListService();
 var todoService = new TODOService();
 var categoryService = new CategoryService();
+//var selectObj = new SelectObject();
 
-//todoService.selectAll();
 listService.selectList();
 categoryService.selectAll();
 
@@ -18,6 +19,10 @@ document.getElementById('AddList').onclick = function(){
     //TODO анимация открытия PopUp
     document.getElementsByClassName('container')[0].setAttribute('class', oldClassContainer+' openPopUp');
     document.getElementById('popUp').style.display = 'block';
+    var selected = new SelectObject('selectCategory');
+    document.getElementById('categorySelect').appendChild(selected.createView());
+    categoryService.inputSelect(selected.optionId);
+    selected.selectOption();
     inputList.focus();
 };
 
@@ -63,14 +68,18 @@ document.getElementById('createCategory').onsubmit = function(){
 };
 
 inputList.oninput = function(){
-    removeError(inputList);
+    if(inputList.value.length == 1){
+        removeClass(inputList, 'error');
+    }
 };
 inputCategory.oninput = function(){
-    removeError(inputCategory);
+    if(inputCategory.value.length == 1){
+        removeClass(inputCategory, 'error');
+    }
 };
 
 document.getElementById('closePopUp').onclick = function(){
-    removeError(inputList);
+    removeClass(inputList, 'error');
     inputList.value = '';
     document.getElementsByClassName('container')[0].setAttribute('class', oldClassContainer);
     document.getElementById('popUp').style.display = 'none';
@@ -81,14 +90,18 @@ document.getElementById('closePopUpCategory').onclick = function(){
     document.getElementById('categoryUp').style.display = 'none';
 };
 
+document.getElementById('AllCategory').onclick = function(){
+    var self = this;
+    removeClass(document.getElementsByClassName('active')[0], 'active');
+    var oldClass = self.getAttribute('class');
+    self.setAttribute('class', oldClass + ' active');
+};
 
-function removeError(InputItem){
-    if(InputItem.value.length == 1){
-        var oldClass = InputItem.getAttribute('class');
-        if(oldClass && oldClass.indexOf('error')>=0){
-            var newClass = oldClass.replace('error', '');
-            InputItem.setAttribute('class', newClass);
-        }
+function removeClass(object, remClass){
+    var oldClass = object.getAttribute('class');
+    if(oldClass && oldClass.indexOf(remClass)>=0){
+        var newClass = oldClass.replace(remClass, '');
+        object.setAttribute('class', newClass);
     }
 }
 
@@ -99,7 +112,6 @@ function addError(InputItem){
     }else{
         InputItem.setAttribute('class', 'error');
     }
-
 }
 
 function initializationPlugin(){
