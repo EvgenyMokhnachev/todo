@@ -51,9 +51,8 @@ SelectObject.prototype.selectOption = function(){
                 img.setAttribute('src', 'images/category/'+imgSelected.img+'_gray.png');
                 result.appendChild(img);
             }
-
             element.parentElement.previousElementSibling.getElementsByTagName('div')[0].onclick();
-
+            result.setAttribute('data-id', element.getAttribute('data-id'));
         }
     });
 };

@@ -12,7 +12,7 @@ listService.selectList();
 categoryService.selectAll();
 
 var inputList = document.getElementById('newList');
-var inputCategory = document.getElementById('newCategory');
+var inputCategory = document.getElementById('inputCategory');
 var oldClassContainer = document.getElementsByClassName('container')[0].getAttribute('class');
 
 document.getElementById('AddList').onclick = function(){
@@ -39,7 +39,8 @@ document.getElementById('createList').onclick = function(){
     if(inputList.value == ""){
         addError(inputList);
     }else{
-        listService.insert(inputList.value);
+        var self = this;
+        listService.insert(inputList.value, self.previousElementSibling.getElementsByTagName('span')[0].getAttribute('data-id'));
         document.getElementsByClassName('container')[0].setAttribute('class', oldClassContainer);
         document.getElementById('popUp').style.display = 'none';
         inputList.value = "";
@@ -50,6 +51,7 @@ document.getElementById('createCategory').onclick = function(){
         addError(inputCategory);
     }else{
         var nameCategory = inputCategory.value;
+        inputCategory.value = '';
         var color = null, img = null;
         document.getElementsByName('color').forEach(function(element, i, mass){
             if(element.checked){
@@ -61,7 +63,7 @@ document.getElementById('createCategory').onclick = function(){
                 img = element.getAttribute('id');
             }
         });
-        categoryService.insertCategory(inputCategory.value, color, img);
+        categoryService.insertCategory(nameCategory, color, img);
     }
 };
 document.getElementById('createCategory').onsubmit = function(){
@@ -86,6 +88,7 @@ document.getElementById('closePopUp').onclick = function(){
     inputList.value = '';
     document.getElementsByClassName('container')[0].setAttribute('class', oldClassContainer);
     document.getElementById('popUp').style.display = 'none';
+    document.getElementsByClassName('selected')[0].getElementsByTagName('span')[0].innerHTML = '';
 };
 
 document.getElementById('closePopUpCategory').onclick = function(){
@@ -98,6 +101,9 @@ document.getElementById('AllCategory').onclick = function(){
     removeClass(document.getElementsByClassName('active')[0], 'active');
     var oldClass = self.getAttribute('class');
     self.setAttribute('class', oldClass + ' active');
+    removeResulBlock();
+    listService.selectList();
+    initializationPlugin();
 };
 
 function removeClass(object, remClass){
@@ -126,6 +132,10 @@ function loadPage(){
         $('.container').addClass('openPopUp');
         $('#popUp').css('display', 'block').find('.popUp').hide();
     },500);
+}
+
+function removeResulBlock(){
+    NoteBlock.innerHTML = '';
 }
 
 $(document).ready(function() {

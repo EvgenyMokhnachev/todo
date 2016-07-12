@@ -18,6 +18,7 @@ Category.prototype.createDOM = function(){
     //    categoryItem.style.backgroundImage = 'url(\'/images/category/'+ self.image +'_white.png\')';
     //}
     categoryItem.onclick = function(){
+        listService.selectActiveCategory(self.id);
         self.setActive(this);
     };
 
@@ -29,6 +30,7 @@ Category.prototype.createSelectDOM = function(){
     var optionBlock = document.createElement('div');
     optionBlock.setAttribute('data-text', self.name);
     optionBlock.setAttribute('data-img', JSON.stringify({color: self.color, img: self.image}));
+    optionBlock.setAttribute('data-id', self.id);
     var imgSpan = document.createElement('span');
     imgSpan.setAttribute('class', 'img ' + self.color+' '+self.image);
     optionBlock.appendChild(imgSpan);

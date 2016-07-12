@@ -13,7 +13,7 @@ var DBManager = (function(){
 
     DBManager.prototype.getConn = function(){
         if(this.conn) return this.conn;
-        if (!window.openDatabase) {
+        if (window.openDatabase) {
             this.conn = openDatabase(this.name, '1.0', 'Test DB', 2 * 1024 * 1024);
         }else{
             this.conn = false;
@@ -26,7 +26,7 @@ var DBManager = (function(){
         if(connect){
             connect.transaction(function(tx){
                 tx.executeSql('CREATE TABLE IF NOT EXISTS todo_element (list_id, todo_text, todo_checked)');
-                tx.executeSql('CREATE TABLE IF NOT EXISTS todo_list (todo_name, category_id)');
+                tx.executeSql('CREATE TABLE IF NOT EXISTS todo_list (list_name, category_id)');
                 tx.executeSql('CREATE TABLE IF NOT EXISTS category (cat_name, cat_color, cat_image)');
             });
         }else{

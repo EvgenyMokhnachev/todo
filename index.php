@@ -46,7 +46,7 @@
             <form>
                 <h3>Create new category</h3>
                 <button type="button" id="closePopUpCategory" class="closeBtn"></button>
-                <input id="newCategory" type="text" />
+                <input id="inputCategory" type="text" />
                 <p>Select Color</p>
                 <div class="colorBlock">
                     <div class="radioBoxBlock"><input type="radio" name="color" id="emptiness"><label for="emptiness"></label></div>

@@ -1,7 +1,7 @@
-function List(id, name){
+function List(id, name, category){
     this.id = id;
     this.name = name;
-
+    this.category_id = category;
     this.DOMObject = undefined;
     this.resultBlock = undefined;
 }
@@ -74,7 +74,8 @@ List.prototype.getListObject = function(){
     var self = this;
     return {
         id: self.id,
-        name: self.name
+        name: self.name,
+        category_id: self.category_id
     };
 };
 
