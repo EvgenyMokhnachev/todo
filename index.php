@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>To Do List</title>
-<!--    <link rel="stylesheet" type="text/css" href="style.css" />-->
-<!--    <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">-->
+
     <link rel="stylesheet" type="text/css" href="css/node-style.css"/>
     <link rel="stylesheet" type="text/css" href="css/select.css"/>
     <link rel="stylesheet" href="/lib/scrollbar/jquery.mCustomScrollbar.css" />
