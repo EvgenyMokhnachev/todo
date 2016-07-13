@@ -22,7 +22,8 @@ $temp-colors: (
         'saffron': #F4D03F,
         'california': #F89406,
         'turquoise': #4ECDC4,
-        'emptiness': rgba(255, 255, 255, 0)
+        'emptiness': rgba(255, 255, 255, 0),
+        'madang': #C8F7C5
 );
 
 @function temp-colors($key: 'main') {
@@ -130,10 +131,19 @@ input, button{
   margin-left: 70px;
   height: 100%;
   min-height: 100%;
-  overflow: hidden;
   position: relative;
   padding-bottom: 20px;
   box-sizing: border-box;
+  @media(min-width: 700px){
+    overflow: hidden;
+  }
+  @media(max-width: 700px){
+    overflow: auto;
+    height: 100% !important;
+  }
+  @media(max-width: 450px){
+    margin-left: 50px;
+  }
 }
 
 input[type='text']{
@@ -161,13 +171,40 @@ input[type='text']{
 .listBlock{
   position: absolute;
   display: inline-block;
-  width: 300px;
   padding: 10px 15px;
   background: temp-colors('white');
-  margin: 15px 10px;
   float: left;
   overflow: hidden;
   top:10px; left:10px;
+
+  @media(min-width: 1106px){
+    width: 300px;
+    margin: 15px 10px;
+  }
+  @media(max-width: 1106px){
+    margin: 10px 5px;
+    width: 28.5%;
+  }
+  @media(max-width: 980px){
+    width: 44%;
+  }
+  @media(max-width: 860px){
+    width: 40%;
+  }
+
+  @media(max-width: 700px){
+    width: 89%;
+    position: relative;
+    display: block;
+    top: 0 !important; left: 10px !important;
+  }
+
+  @media(max-width: 491px){
+    width: 85%;
+  }
+  @media(max-width: 450px){
+    width: 86%;
+  }
 
   h2{
     @include H-text(16px);
@@ -178,9 +215,14 @@ input[type='text']{
   .createTodo{
     overflow: auto;
     input{
-      width: 250px;
       display:block;
       float: left;
+      @media(min-width: 1106px){
+        width: 250px;
+      }
+      @media(max-width: 1106px){
+        width: 82%;
+      }
     }
     button{
       display: inline-block;
@@ -331,6 +373,9 @@ input[type='text']{
   margin: 5px 5px 5px 0;
   position: relative;
   display: inline-block;
+  @media (max-width: 600px) {
+    height: 52px;
+  }
 
   label{
     cursor: pointer;
@@ -467,10 +512,15 @@ input[type='text']{
 }
 .editTodo{
   display: inline-block;
-  width: 90%;
+  width: 100%;
   input{
-    width: 220px;
     margin-bottom: 10px;
+    @media(min-width: 1106px){
+      width: 220px;
+    }
+    @media(max-width: 1106px){
+      width: 82%;
+    }
   }
   button{
     border-radius: 50%;
@@ -519,9 +569,16 @@ input[type='text']{
     }
   }
   &#categoryUp .popUp{
-    height: 365px;
-    width: 540px;
-    top: 10%;
+    @media(min-width: 600px){
+      width: 540px;
+      height: 365px;
+      top: 10%;
+    }
+    @media(max-width: 600px) {
+      width: 300px;
+      height: 515px;
+      top: 5%;
+    }
   }
   .popUp{
     background: temp-colors('white');
@@ -558,8 +615,13 @@ input[type='text']{
       margin: 5px 0 10px;
     }
     .colorBlock{
-      height: 50px;
       margin-bottom: 10px;
+      @media(min-width: 600px) {
+        height: 50px;
+      }
+      @media(max-width: 600px) {
+        height: 100%;
+      }
     }
 
     #createList{
@@ -588,14 +650,24 @@ input[type='text']{
   background:{
     repeat: no-repeat;
     position: center;
-    size: 25px;
     //color: $color;
   };
+  @media(max-width: 450px){
+    background-size: 25px;
+  }
+  @media(min-width: 450px){
+    background-size: 30px;
+  }
 }
 .buttonLeft{
   position: fixed;
   height: 100vh;
+  @media(min-width: 450px){
   width: 70px;
+  }
+  @media(max-width: 450px){
+    width: 50px;
+  }
   #AddList{
     background:{
       image: url('../images/add-button.png');
@@ -603,14 +675,22 @@ input[type='text']{
       position: center;
       repeat: no-repeat;
     }
-    width: 50px;
-    height: 50px;
     border: none;
     border-radius: 50%;
     display: block;
-    margin: 15px 10px 10px;
     @include transition(background-color, 0.5s, 0.1s, 'ease-in');
     @include transition(box-shadow, 0.2s, 0.1s, 'initial');
+
+    @media(min-width: 450px){
+      width: 50px;
+      height: 50px;
+      margin: 15px 10px 10px;
+    }
+    @media(max-width: 450px){
+      width: 40px;
+      height: 40px;
+      margin: 20px 5px 15px;
+    }
 
     &:hover{
       background-color: temp-colors('main-hover');
@@ -625,12 +705,20 @@ input[type='text']{
   .categoryBtn{
     display: block;
     position: relative;
-    width: 45px;
-    height: 45px;
-    margin: 2px 15px 3px;
     border: 1px solid temp-colors('white');
     @include backgroundBtn();
     @include radius(50%, 50%, 50%, 50%);
+
+    @media(min-width: 450px){
+      width: 45px;
+      height: 45px;
+      margin: 2px 15px 3px;
+    }
+    @media(max-width: 450px){
+      width: 36px;
+      height: 36px;
+      margin: 5px 7px 5px 7px;
+    }
 
     &.active:after{
       position: absolute;
@@ -647,7 +735,7 @@ input[type='text']{
     }
     &:hover{
       cursor: pointer;
-      border: 1px solid temp-colors('main');
+      border-color: temp-colors('main');
     }
 
     &.all{
@@ -678,27 +766,35 @@ input[type='text']{
     }
     &.emptiness{
       background-color: temp-colors('emptiness');
+      border-color: temp-colors('emptiness');
     }
     &.swuff{
       background-color: temp-colors('swuff');
+      border-color: temp-colors('swuff');
     }
     &.radical{
       background-color: temp-colors('radical');
+      border-color: temp-colors('radical');
     }
     &.cinnabar{
       background-color: temp-colors('cinnabar');
+      border-color: temp-colors('cinnabar');
     }
     &.emerald{
       background-color: temp-colors('emerald');
+      border-color: temp-colors('emerald');
     }
     &.saffron{
       background-color: temp-colors('saffron');
+      border-color: temp-colors('saffron');
     }
     &.california{
       background-color: temp-colors('california');
+      border-color: temp-colors('california');
     }
     &.turquoise{
       background-color: temp-colors('turquoise');
+      border-color: temp-colors('turquoise');
     }
 
     &.house{
@@ -805,6 +901,22 @@ input[type='text']{
         }
       }
     }
+    &.null{
+      background:{
+        color: temp-colors('madang');
+        image: url('/images/category/panda_gray.png');
+      }
+      border-color: temp-colors('madang');
+
+      @include transition();
+      &:hover{
+        background:{
+          image: url('/images/category/panda_main.png');
+          color: temp-colors('white');
+        }
+        border-color: temp-colors('madang');
+      }
+    }
 
 
     #newCategoty{
@@ -815,12 +927,15 @@ input[type='text']{
   }
 }
 
-//.mCS-my-theme.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{ background-color: red; }
-//.mCS-my-theme.mCSB_scrollTools .mCSB_draggerRail{ background-color: white; }
 .mCS-my-theme{
   &.mCSB_scrollTools{
-    width: 10px;
     background-color: temp-colors('white');
+    @media(min-width: 450px){
+      width: 10px;
+    }
+    @media(max-width: 450px) {
+      width: 7px;
+    }
 
     .mCSB_draggerContainer{
       .mCSB_draggerRail{
@@ -845,9 +960,17 @@ input[type='text']{
     }
   }
   .mCSB_container{
-    margin-right: 10px !important;
+    @media(min-width: 450px){
+      margin-right: 10px !important;
+    }
+    @media(max-width: 450px) {
+      margin-right: 7px !important;
+    }
   }
 }
 
+@media(max-width: 1106px){
+
+}
 
 

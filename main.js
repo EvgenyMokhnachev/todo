@@ -127,7 +127,7 @@ document.getElementById('AllCategory').onclick = function(){
     listService.selectList();
     setTimeout(function(){
         initializationPlugin();
-    }, 10)
+    }, 100)
 };
 
 function removeClass(object, remClass){
@@ -148,7 +148,10 @@ function addError(InputItem){
 }
 
 function initializationPlugin(){
-    $("#notes").shapeshift();
+    var windowWidth = $('html').width();
+    if(windowWidth > 700){
+        $("#notes").shapeshift();
+    }
 }
 
 function loadPage(){
@@ -193,4 +196,8 @@ $(window).on("resize",function(){
     var categoryBlock = $(".categoryBlock");
     var buttonLeftHeight = $(".buttonLeft").height();
     categoryBlock.css('height', buttonLeftHeight-75);
+    setTimeout(function(){
+        initializationPlugin();
+    }, 10);
+    //$("#notes").shapeshift();
 });

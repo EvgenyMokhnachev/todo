@@ -29,10 +29,19 @@ input:focus, button:focus {
   margin-left: 70px;
   height: 100%;
   min-height: 100%;
-  overflow: hidden;
   position: relative;
   padding-bottom: 20px;
   box-sizing: border-box; }
+  @media (min-width: 700px) {
+    #notes {
+      overflow: hidden; } }
+  @media (max-width: 700px) {
+    #notes {
+      overflow: auto;
+      height: 100% !important; } }
+  @media (max-width: 450px) {
+    #notes {
+      margin-left: 50px; } }
 
 input[type='text'] {
   font-family: "OpenSans", sans-serif;
@@ -56,14 +65,39 @@ input[type='text'] {
 .listBlock {
   position: absolute;
   display: inline-block;
-  width: 300px;
   padding: 10px 15px;
   background: #fff;
-  margin: 15px 10px;
   float: left;
   overflow: hidden;
   top: 10px;
   left: 10px; }
+  @media (min-width: 1106px) {
+    .listBlock {
+      width: 300px;
+      margin: 15px 10px; } }
+  @media (max-width: 1106px) {
+    .listBlock {
+      margin: 10px 5px;
+      width: 28.5%; } }
+  @media (max-width: 980px) {
+    .listBlock {
+      width: 44%; } }
+  @media (max-width: 860px) {
+    .listBlock {
+      width: 40%; } }
+  @media (max-width: 700px) {
+    .listBlock {
+      width: 89%;
+      position: relative;
+      display: block;
+      top: 0 !important;
+      left: 10px !important; } }
+  @media (max-width: 491px) {
+    .listBlock {
+      width: 85%; } }
+  @media (max-width: 450px) {
+    .listBlock {
+      width: 86%; } }
   .listBlock h2 {
     font-family: "OpenSans-Bold", sans-serif;
     font-size: 16px;
@@ -76,9 +110,14 @@ input[type='text'] {
   .listBlock .createTodo {
     overflow: auto; }
     .listBlock .createTodo input {
-      width: 250px;
       display: block;
       float: left; }
+      @media (min-width: 1106px) {
+        .listBlock .createTodo input {
+          width: 250px; } }
+      @media (max-width: 1106px) {
+        .listBlock .createTodo input {
+          width: 82%; } }
     .listBlock .createTodo button {
       display: inline-block;
       width: 34px;
@@ -254,6 +293,9 @@ input[type='text'] {
   margin: 5px 5px 5px 0;
   position: relative;
   display: inline-block; }
+  @media (max-width: 600px) {
+    .radioBoxBlock {
+      height: 52px; } }
   .radioBoxBlock label {
     cursor: pointer;
     position: absolute;
@@ -394,10 +436,15 @@ input[type='text'] {
 
 .editTodo {
   display: inline-block;
-  width: 90%; }
+  width: 100%; }
   .editTodo input {
-    width: 220px;
     margin-bottom: 10px; }
+    @media (min-width: 1106px) {
+      .editTodo input {
+        width: 220px; } }
+    @media (max-width: 1106px) {
+      .editTodo input {
+        width: 82%; } }
   .editTodo button {
     border-radius: 50%;
     border: none;
@@ -455,10 +502,16 @@ input[type='text'] {
     top: 25%; }
     .fonPopUp#popUp .popUp #newList {
       margin-bottom: 10px; }
-  .fonPopUp#categoryUp .popUp {
-    height: 365px;
-    width: 540px;
-    top: 10%; }
+  @media (min-width: 600px) {
+    .fonPopUp#categoryUp .popUp {
+      width: 540px;
+      height: 365px;
+      top: 10%; } }
+  @media (max-width: 600px) {
+    .fonPopUp#categoryUp .popUp {
+      width: 300px;
+      height: 515px;
+      top: 5%; } }
   .fonPopUp .popUp {
     background: #fff;
     border-bottom-left-radius: 2px;
@@ -521,8 +574,13 @@ input[type='text'] {
       font-size: 14px;
       margin: 5px 0 10px; }
     .fonPopUp .popUp .colorBlock {
-      height: 50px;
       margin-bottom: 10px; }
+      @media (min-width: 600px) {
+        .fonPopUp .popUp .colorBlock {
+          height: 50px; } }
+      @media (max-width: 600px) {
+        .fonPopUp .popUp .colorBlock {
+          height: 100%; } }
     .fonPopUp .popUp #createList, .fonPopUp .popUp #createCategory {
       margin-top: 10px;
       width: 100%;
@@ -559,19 +617,21 @@ input[type='text'] {
 
 .buttonLeft {
   position: fixed;
-  height: 100vh;
-  width: 70px; }
+  height: 100vh; }
+  @media (min-width: 450px) {
+    .buttonLeft {
+      width: 70px; } }
+  @media (max-width: 450px) {
+    .buttonLeft {
+      width: 50px; } }
   .buttonLeft #AddList {
     background-image: url("../images/add-button.png");
     background-color: #21b8c6;
     background-position: center;
     background-repeat: no-repeat;
-    width: 50px;
-    height: 50px;
     border: none;
     border-radius: 50%;
     display: block;
-    margin: 15px 10px 10px;
     -webkit-transition-property: background-color;
     -moz-transition-property: background-color;
     -o-transition-property: background-color;
@@ -608,6 +668,16 @@ input[type='text'] {
     -ms-transition-timing-function: "initial";
     -o-transition-timing-function: "initial";
     transition-timing-function: "initial"; }
+    @media (min-width: 450px) {
+      .buttonLeft #AddList {
+        width: 50px;
+        height: 50px;
+        margin: 15px 10px 10px; } }
+    @media (max-width: 450px) {
+      .buttonLeft #AddList {
+        width: 40px;
+        height: 40px;
+        margin: 20px 5px 15px; } }
     .buttonLeft #AddList:hover {
       background-color: #239aa8;
       cursor: pointer; }
@@ -616,13 +686,9 @@ input[type='text'] {
   .buttonLeft .categoryBtn {
     display: block;
     position: relative;
-    width: 45px;
-    height: 45px;
-    margin: 2px 15px 3px;
     border: 1px solid #fff;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 25px;
     border-bottom-left-radius: 50%;
     border-bottom-right-radius: 50%;
     border-top-left-radius: 50%;
@@ -635,6 +701,22 @@ input[type='text'] {
     -webkit-border-bottom-left-radius: 50%;
     -webkit-border-bottom-right-radius: 50%;
     -webkit-border-top-right-radius: 50%; }
+    @media (max-width: 450px) {
+      .buttonLeft .categoryBtn {
+        background-size: 25px; } }
+    @media (min-width: 450px) {
+      .buttonLeft .categoryBtn {
+        background-size: 30px; } }
+    @media (min-width: 450px) {
+      .buttonLeft .categoryBtn {
+        width: 45px;
+        height: 45px;
+        margin: 2px 15px 3px; } }
+    @media (max-width: 450px) {
+      .buttonLeft .categoryBtn {
+        width: 36px;
+        height: 36px;
+        margin: 5px 7px 5px 7px; } }
     .buttonLeft .categoryBtn.active:after {
       position: absolute;
       content: '';
@@ -647,7 +729,7 @@ input[type='text'] {
       background-size: contain; }
     .buttonLeft .categoryBtn:hover {
       cursor: pointer;
-      border: 1px solid #21b8c6; }
+      border-color: #21b8c6; }
     .buttonLeft .categoryBtn.all {
       background-image: url("/images/category/note.png");
       background-color: rgba(255, 255, 255, 0); }
@@ -659,21 +741,29 @@ input[type='text'] {
       .buttonLeft .categoryBtn.add:hover {
         background-image: url("/images/add-green.png"); }
     .buttonLeft .categoryBtn.emptiness {
-      background-color: rgba(255, 255, 255, 0); }
+      background-color: rgba(255, 255, 255, 0);
+      border-color: rgba(255, 255, 255, 0); }
     .buttonLeft .categoryBtn.swuff {
-      background-color: #DCC6E0; }
+      background-color: #DCC6E0;
+      border-color: #DCC6E0; }
     .buttonLeft .categoryBtn.radical {
-      background-color: #F62459; }
+      background-color: #F62459;
+      border-color: #F62459; }
     .buttonLeft .categoryBtn.cinnabar {
-      background-color: #E74C3C; }
+      background-color: #E74C3C;
+      border-color: #E74C3C; }
     .buttonLeft .categoryBtn.emerald {
-      background-color: #3FC380; }
+      background-color: #3FC380;
+      border-color: #3FC380; }
     .buttonLeft .categoryBtn.saffron {
-      background-color: #F4D03F; }
+      background-color: #F4D03F;
+      border-color: #F4D03F; }
     .buttonLeft .categoryBtn.california {
-      background-color: #F89406; }
+      background-color: #F89406;
+      border-color: #F89406; }
     .buttonLeft .categoryBtn.turquoise {
-      background-color: #4ECDC4; }
+      background-color: #4ECDC4;
+      border-color: #4ECDC4; }
     .buttonLeft .categoryBtn.house {
       background-image: url("/images/category/house_white.png");
       -webkit-transition-property: "all";
@@ -874,13 +964,44 @@ input[type='text'] {
       .buttonLeft .categoryBtn.pizza:hover {
         background-image: url("/images/category/pizza_main.png");
         background-color: #fff; }
+    .buttonLeft .categoryBtn.null {
+      background-color: #C8F7C5;
+      background-image: url("/images/category/panda_gray.png");
+      border-color: #C8F7C5;
+      -webkit-transition-property: "all";
+      -moz-transition-property: "all";
+      -o-transition-property: "all";
+      transition-property: "all";
+      -webkit-transition-duration: 0.3s;
+      -moz-transition-duration: 0.3s;
+      -o-transition-duration: 0.3s;
+      transition-duration: 0.3s;
+      -webkit-transition-delay: 0.1s;
+      -moz-transition-delay: 0.1s;
+      -ms-transition-delay: 0.1s;
+      -o-transition-delay: 0.1s;
+      transition-delay: 0.1s;
+      -webkit-transition-timing-function: "initial";
+      -moz-transition-timing-function: "initial";
+      -ms-transition-timing-function: "initial";
+      -o-transition-timing-function: "initial";
+      transition-timing-function: "initial"; }
+      .buttonLeft .categoryBtn.null:hover {
+        background-image: url("/images/category/panda_main.png");
+        background-color: #fff;
+        border-color: #C8F7C5; }
     .buttonLeft .categoryBtn #newCategoty {
       position: relative;
       width: 100%; }
 
 .mCS-my-theme.mCSB_scrollTools {
-  width: 10px;
   background-color: #fff; }
+  @media (min-width: 450px) {
+    .mCS-my-theme.mCSB_scrollTools {
+      width: 10px; } }
+  @media (max-width: 450px) {
+    .mCS-my-theme.mCSB_scrollTools {
+      width: 7px; } }
   .mCS-my-theme.mCSB_scrollTools .mCSB_draggerContainer .mCSB_draggerRail {
     background-color: #d7dde2; }
   .mCS-my-theme.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar {
@@ -889,8 +1010,12 @@ input[type='text'] {
     background-color: #21b8c6; }
   .mCS-my-theme.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar {
     background-color: #e64c65; }
-.mCS-my-theme .mCSB_container {
-  margin-right: 10px !important; }
+@media (min-width: 450px) {
+  .mCS-my-theme .mCSB_container {
+    margin-right: 10px !important; } }
+@media (max-width: 450px) {
+  .mCS-my-theme .mCSB_container {
+    margin-right: 7px !important; } }
 
 .selectBlock {
   width: 100%;

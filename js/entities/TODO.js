@@ -64,6 +64,7 @@ TODO.prototype.showEditBlock = function(editInput, editBtn, removeBtn, saveBtn, 
     editBtn.style.display = 'none';
     removeBtn.style.display = 'none';
     checkBoxBlock.style.opacity = 0;
+    checkBoxBlock.style.display = 'none';
     editInput.style.display = 'inline-block';
     editInput.focus();
     saveBtn.style.display = 'inline-block';
@@ -77,6 +78,7 @@ TODO.prototype.hideEditBlock = function(editInput, saveBtn, editBtn, removeBtn, 
     editBtn.style.display = 'inline-block';
     removeBtn.style.display = 'inline-block';
     checkBoxBlock.style.opacity = 1;
+    checkBoxBlock.style.display = 'inline-block';
     self.text = editInput.value;
 };
 

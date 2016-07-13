@@ -14,6 +14,9 @@ Category.prototype.createDOM = function(){
     categoryItem.onclick = function(){
         listService.selectActiveCategory(self.id);
         self.setActive(this);
+        setTimeout(function(){
+            initializationPlugin();
+        }, 100)
     };
 
     return categoryItem;
