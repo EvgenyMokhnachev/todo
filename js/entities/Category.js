@@ -11,12 +11,6 @@ Category.prototype.createDOM = function(){
     var categoryItem = document.createElement('button');
     categoryItem.setAttribute('type', 'button');
     categoryItem.setAttribute('class', 'categoryBtn '+self.color+' '+self.image);
-    //categoryItem.style.backgroundColor = self.color;
-    //if(self.color == 'emptiness'){
-    //    categoryItem.style.backgroundImage = 'url(\'/images/category/'+ self.image +'_gray.png\')';
-    //}else{
-    //    categoryItem.style.backgroundImage = 'url(\'/images/category/'+ self.image +'_white.png\')';
-    //}
     categoryItem.onclick = function(){
         listService.selectActiveCategory(self.id);
         self.setActive(this);

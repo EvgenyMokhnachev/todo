@@ -32,7 +32,7 @@ CategoryService.prototype.selectAll = function(){
                 var resultIndex = 0;
                 while(resultIndex < result.rows.length && result.rows[resultIndex]){
                     var categoryRow = result.rows[resultIndex++];
-                    var categoryItem = new Category(categoryRow.id, categoryRow.name, categoryRow.color, categoryRow.image);
+                    var categoryItem = new Category(categoryRow.rowid, categoryRow.cat_name, categoryRow.cat_color, categoryRow.cat_image);
                     categoryBlock.appendChild(categoryItem.createDOM());
                 }
             },function(){alert('error')});
@@ -58,7 +58,8 @@ CategoryService.prototype.inputSelect = function(id){
                 var resultIndex = 0;
                 while(resultIndex < result.rows.length && result.rows[resultIndex]){
                     var categoryRow = result.rows[resultIndex++];
-                    var categoryItem = new Category(categoryRow.id, categoryRow.name, categoryRow.color, categoryRow.image);
+                    var categoryItem = new Category(categoryRow.rowid, categoryRow.cat_name, categoryRow.cat_color, categoryRow.cat_image);
+                    console.log(categoryItem);
                     selectCategory.appendChild(categoryItem.createSelectDOM());
                 }
             },function(){alert('error')});

@@ -167,6 +167,7 @@ input[type='text']{
   margin: 15px 10px;
   float: left;
   overflow: hidden;
+  top:10px; left:10px;
 
   h2{
     @include H-text(16px);
@@ -813,3 +814,40 @@ input[type='text']{
 
   }
 }
+
+//.mCS-my-theme.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{ background-color: red; }
+//.mCS-my-theme.mCSB_scrollTools .mCSB_draggerRail{ background-color: white; }
+.mCS-my-theme{
+  &.mCSB_scrollTools{
+    width: 10px;
+    background-color: temp-colors('white');
+
+    .mCSB_draggerContainer{
+      .mCSB_draggerRail{
+        background-color: temp-colors('input');
+      }
+    }
+
+    .mCSB_dragger{
+      &.mCSB_dragger_onDrag{
+        .mCSB_dragger_bar{
+          background-color: temp-colors('main');
+        }
+      }
+      .mCSB_dragger_bar{
+        background-color: temp-colors('main');
+      }
+      &:hover{
+        .mCSB_dragger_bar{
+          background-color: temp-colors('error');
+        }
+      }
+    }
+  }
+  .mCSB_container{
+    margin-right: 10px !important;
+  }
+}
+
+
+

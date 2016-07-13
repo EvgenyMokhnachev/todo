@@ -7,38 +7,37 @@
 <!--    <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">-->
     <link rel="stylesheet" type="text/css" href="css/node-style.css"/>
     <link rel="stylesheet" type="text/css" href="css/select.css"/>
+    <link rel="stylesheet" href="/lib/scrollbar/jquery.mCustomScrollbar.css" />
 
     <script type="text/javascript" src="/lib/jquery.min.js"></script>
     <script type="text/javascript" src="/lib/jquery-ui.min.js"></script>
 
     <script src="/lib/core/vendor/jquery.touch-punch.min.js"></script>
     <script src="/lib/core/jquery.shapeshift.js"></script>
-
+    <script src="/lib/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
 </head>
 <body>
     <div class="container">
         <div class=" buttonLeft">
             <button type="button" id="AddList"></button>
-            <button type="button" id="AllCategory" class="categoryBtn all active"></button>
-            <div id="newCategory"></div>
-            <button type="button" id="AddCategory" class="categoryBtn add"></button>
+            <div class="categoryBlock">
+                <button type="button" id="AllCategory" class="categoryBtn all active"></button>
+                <div id="newCategory"></div>
+                <button type="button" id="AddCategory" class="categoryBtn add"></button>
+            </div>
         </div>
         <div id="notes"></div>
     </div>
     <div class="fonPopUp" id="popUp">
         <div class="popUp">
-            <h3>Create new list todo</h3>
-            <button type="button" id="closePopUp" class="closeBtn"></button>
-            <input id="newList" type="text" />
-            <p>Select category</p>
-            <div id="categorySelect"></div>
-<!--            <div class="selectBlock">-->
-<!--                <div class="selected">-->
-<!--                    <div class="button"></div>-->
-<!--                </div>-->
-<!--                <div class="option" id="selectCategory"></div>-->
-<!--            </div>-->
-            <button type="button" id="createList">Create</button>
+            <form>
+                <h3>Create new list todo</h3>
+                <button type="button" id="closePopUp" class="closeBtn"></button>
+                <input id="newList" type="text" />
+                <p>Select category</p>
+                <div id="categorySelect"></div>
+                <button type="submit" id="createList">Create</button>
+            </form>
         </div>
     </div>
     <div class="fonPopUp" id="categoryUp">

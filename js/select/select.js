@@ -3,6 +3,7 @@ function SelectObject(optionId){
 }
 
 SelectObject.prototype.createView = function(){
+    var selfObject = this;
     var selectBlock = document.createElement('div');
     selectBlock.setAttribute('class', 'selectBlock');
 
@@ -18,17 +19,19 @@ SelectObject.prototype.createView = function(){
 
     var option = document.createElement('div');
     option.setAttribute('class', 'option');
-    option.setAttribute('id', this.optionId);
+    option.setAttribute('id', selfObject.optionId);
     selectBlock.appendChild(option);
 
     selectBtn.onclick = function(){
         var btn = this;
+        selectResult.style.borderColor = '#d7dde2';
         if(btn.getAttribute('data-action') == 'open'){
             btn.setAttribute('data-action', 'close');
             option.style.display = 'none';
         }else{
             btn.setAttribute('data-action', 'open');
             option.style.display = 'block';
+            selfObject.selectOption();
         }
     };
 

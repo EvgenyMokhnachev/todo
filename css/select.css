@@ -61,7 +61,9 @@ input[type='text'] {
   background: #fff;
   margin: 15px 10px;
   float: left;
-  overflow: hidden; }
+  overflow: hidden;
+  top: 10px;
+  left: 10px; }
   .listBlock h2 {
     font-family: "OpenSans-Bold", sans-serif;
     font-size: 16px;
@@ -875,6 +877,20 @@ input[type='text'] {
     .buttonLeft .categoryBtn #newCategoty {
       position: relative;
       width: 100%; }
+
+.mCS-my-theme.mCSB_scrollTools {
+  width: 10px;
+  background-color: #fff; }
+  .mCS-my-theme.mCSB_scrollTools .mCSB_draggerContainer .mCSB_draggerRail {
+    background-color: #d7dde2; }
+  .mCS-my-theme.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar {
+    background-color: #21b8c6; }
+  .mCS-my-theme.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+    background-color: #21b8c6; }
+  .mCS-my-theme.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar {
+    background-color: #e64c65; }
+.mCS-my-theme .mCSB_container {
+  margin-right: 10px !important; }
 
 .selectBlock {
   width: 100%;

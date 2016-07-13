@@ -57,7 +57,7 @@ TODOService.prototype.updateTable = function(element, callback){
     var connect = this.db.getConn();
     if(connect){
         connect.transaction(function(tx){
-            tx.executeSql('UPDATE todo_element SET todo_text="'+element.text+'" WHERE rowid='+element.id, [], function(){
+            tx.executeSql('UPDATE todo_element SET todo_text="'+element.text+'" WHERE rowid=\''+element.id+'\'', [], function(){
                 if(callback) callback();
             }, function(arg1, arg2){
                 console.log('arg1'+arg1);
@@ -82,7 +82,7 @@ TODOService.prototype.updateChecked = function(element){
     var connect = this.db.getConn();
     if(connect){
         connect.transaction(function(tx){
-            tx.executeSql('UPDATE todo_element SET todo_checked="'+element.isChecked+'" WHERE rowid='+element.id, [], function(){}, function(arg1, arg2){});
+            tx.executeSql('UPDATE todo_element SET todo_checked="'+element.isChecked+'" WHERE rowid=\''+element.id+'\'', [], function(){}, function(arg1, arg2){});
         });
     }else{
         var todo_mass = JSON.parse(localStorage.getItem('todo_element'));
@@ -100,7 +100,7 @@ TODOService.prototype.deleteElement = function(element){
     var connect = this.db.getConn();
     if(connect){
         connect.transaction(function(tx){
-            tx.executeSql('DELETE FROM todo_element WHERE rowid=' +element.id, [], function(){
+            tx.executeSql('DELETE FROM todo_element WHERE rowid=\''+element.id+'\'', [], function(){
                 //console.log('Удаление прошло удачно');
             }, function(){
                 //console.log('Удаление прошло НЕ удачно');
@@ -126,7 +126,7 @@ TODOService.prototype.removeTodoList = function(list_id){
                 var resultIndex = 0;
                 while(resultIndex < result.rows.length && result.rows[resultIndex]){
                     var todoRow = result.rows[resultIndex++];
-                    tx.executeSql('DELETE FROM todo_element WHERE rowid=' +todoRow.rowid, [], function(){
+                    tx.executeSql('DELETE FROM todo_element WHERE rowid=\''+todoRow.rowid+'\'', [], function(){
                         //console.log('Удаление прошло удачно');
                     }, function(){
                         //console.log('Удаление прошло НЕ удачно');

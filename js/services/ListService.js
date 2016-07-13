@@ -81,7 +81,7 @@ ListService.prototype.selectActiveCategory = function(id){
     removeResulBlock();
     if(connect){
         connect.transaction(function(tx){
-            tx.executeSql('SELECT ROWID, list_name FROM todo_list WHERE category_id ='+id, [], function (tx, result) {
+            tx.executeSql('SELECT ROWID, list_name FROM todo_list WHERE category_id =\''+id+'\'', [], function (tx, result) {
                 var resultIndex = 0;
                 while(resultIndex < result.rows.length && result.rows[resultIndex]){
                     var listRow = result.rows[resultIndex++];

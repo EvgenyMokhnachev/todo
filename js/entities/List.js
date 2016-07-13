@@ -34,7 +34,7 @@ List.prototype.createDOM = function(){
     self.resultBlock = document.createElement('div');
     self.resultBlock.setAttribute('class', 'result');
     listItem.appendChild(self.resultBlock);
-    formBlock.onsubmit = function(event){
+    createBtn.onsubmit = function(event){
         event.preventDefault();
         createBtn.click();
         return false;
