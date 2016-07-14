@@ -117,6 +117,7 @@ List.prototype.editPopUp = function(){
     form.appendChild(selectBlock);
     var editBtn = document.createElement('button');
     editBtn.setAttribute('type','submit');
+    editBtn.setAttribute('id', 'editListBtn');
     editBtn.innerHTML = 'Update';
     form.appendChild(editBtn);
 
@@ -125,10 +126,9 @@ List.prototype.editPopUp = function(){
     };
 
     editBtn.onclick = function(){
-        //TODO udate list
-        //self.name = '';
-        //self.category_id = '';
-        listService.updateList(self)
+        self.name = input.value;
+        self.category_id = document.getElementById(selected.optionId).previousSibling.getElementsByTagName('span')[0].getAttribute('data-id');
+        listService.updateList(self);
     };
 
     editBtn.onsubmit = function(event){
