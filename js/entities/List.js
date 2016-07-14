@@ -59,6 +59,9 @@ List.prototype.createDOM = function(){
 List.prototype.settingsNameBlock = function(nameBlock){
     var self = this;
     nameBlock.innerHTML = self.name;
+    var settingBtn = document.createElement('a');
+    settingBtn.setAttribute('class', 'settingBtn');
+    nameBlock.appendChild(settingBtn);
     var deleteBtn = document.createElement('a');
     deleteBtn.setAttribute('class', 'deleteBtn');
     nameBlock.appendChild(deleteBtn);
@@ -66,6 +69,9 @@ List.prototype.settingsNameBlock = function(nameBlock){
         listService.removeList(self);
         self.DOMObject.remove();
         initializationPlugin();
+    };
+    settingBtn.onclick = function(){
+        self.editPopUp();
     };
     return nameBlock;
 };
@@ -77,5 +83,63 @@ List.prototype.getListObject = function(){
         name: self.name,
         category_id: self.category_id
     };
+};
+
+List.prototype.editPopUp = function(){
+    var self = this;
+    var fonPopUp = document.createElement('div');
+    fonPopUp.setAttribute('class', 'fonPopUp');
+    fonPopUp.setAttribute('id', 'settingList');
+    fonPopUp.style.display = 'block';
+    var popUp = document.createElement('div');
+    popUp.setAttribute('class', 'popUp');
+    fonPopUp.appendChild(popUp);
+    var form = document.createElement('form');
+    popUp.appendChild(form);
+    var h3 = document.createElement('h3');
+    h3.innerHTML = 'Edit list todo';
+    form.appendChild(h3);
+    var closeBtn = document.createElement('button');
+    closeBtn.setAttribute('class','closeBtn');
+    closeBtn.setAttribute('type', 'button');
+    form.appendChild(closeBtn);
+    var input = document.createElement('input');
+    input.setAttribute('type', 'text');
+    input.setAttribute('id', 'editListInput');
+    input.value = self.name;
+    form.appendChild(input);
+    var pCategory = document.createElement('p');
+    pCategory.innerHTML = 'Category';
+    form.appendChild(pCategory);
+    var selectBlock = document.createElement('div');
+    var selected = new SelectObject('selectEditCategory');
+
+    form.appendChild(selectBlock);
+    var editBtn = document.createElement('button');
+    editBtn.setAttribute('type','submit');
+    editBtn.innerHTML = 'Update';
+    form.appendChild(editBtn);
+
+    closeBtn.onclick = function(){
+        document.getElementsByTagName('body')[0].removeChild(fonPopUp);
+    };
+
+    editBtn.onclick = function(){
+        //TODO udate list
+        //self.name = '';
+        //self.category_id = '';
+        listService.updateList(self)
+    };
+
+    editBtn.onsubmit = function(event){
+        event.preventDefault();
+        editBtn.click();
+        return false;
+    };
+    input.focus();
+    document.getElementsByTagName('body')[0].appendChild(fonPopUp);
+    selectBlock.appendChild(selected.createView());
+    categoryService.inputSelect(selected.optionId);
+    categoryService.selectedForId(selected.optionId, self.category_id);
 };
 

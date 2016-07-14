@@ -56,9 +56,6 @@
                     <div class="radioBoxBlock"><input type="radio" name="color" id="california"><label for="california"></label></div>
                     <div class="radioBoxBlock"><input type="radio" name="color" id="turquoise"><label for="turquoise"></label></div>
                 </div>
-    <!--            <div class="colorBlock">-->
-    <!--                -->
-    <!--            </div>-->
                 <p>Select image</p>
                 <div class="colorBlock">
                     <div class="radioBoxBlock"><input type="radio" name="image" id="house"><label for="house"></label></div>
@@ -70,9 +67,6 @@
                     <div class="radioBoxBlock"><input type="radio" name="image" id="bike"><label for="bike"></label></div>
                     <div class="radioBoxBlock"><input type="radio" name="image" id="pizza"><label for="pizza"></label></div>
                 </div>
-    <!--            <div class="colorBlock">-->
-    <!--                -->
-    <!--            </div>-->
                 <button type="submit" id="createCategory">Create</button>
             </form>
         </div>

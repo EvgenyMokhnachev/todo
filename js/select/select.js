@@ -51,7 +51,11 @@ SelectObject.prototype.selectOption = function(){
             if(element.getAttribute('data-img')){
                 var imgSelected = JSON.parse(element.getAttribute('data-img'));
                 var img = document.createElement('img');
-                img.setAttribute('src', 'images/category/'+imgSelected.img+'_gray.png');
+                if(imgSelected.img == 'null'){
+                    img.setAttribute('src', 'images/category/panda_gray.png');
+                }else{
+                    img.setAttribute('src', 'images/category/'+imgSelected.img+'_gray.png');
+                }
                 result.appendChild(img);
             }
             element.parentElement.previousElementSibling.getElementsByTagName('div')[0].onclick();

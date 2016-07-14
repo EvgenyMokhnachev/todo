@@ -5,7 +5,7 @@ ListService.prototype.selectList = function(){
     var connect = this.db.getConn();
     if(connect){
         connect.transaction(function(tx){
-            tx.executeSql('SELECT ROWID, list_name FROM todo_list', [], function (tx, result) {
+            tx.executeSql('SELECT ROWID, list_name, category_id  FROM todo_list', [], function (tx, result) {
                 var resultIndex = 0;
                 while(resultIndex < result.rows.length && result.rows[resultIndex]){
                     var listRow = result.rows[resultIndex++];
@@ -81,7 +81,7 @@ ListService.prototype.selectActiveCategory = function(id){
     removeResulBlock();
     if(connect){
         connect.transaction(function(tx){
-            tx.executeSql('SELECT ROWID, list_name FROM todo_list WHERE category_id =\''+id+'\'', [], function (tx, result) {
+            tx.executeSql('SELECT ROWID, list_name, category_id FROM todo_list WHERE category_id =\''+id+'\'', [], function (tx, result) {
                 var resultIndex = 0;
                 while(resultIndex < result.rows.length && result.rows[resultIndex]){
                     var listRow = result.rows[resultIndex++];
@@ -105,4 +105,30 @@ ListService.prototype.selectActiveCategory = function(id){
         }
     }
     initializationPlugin();
+};
+
+ListService.prototype.updateList = function(element){
+    var connect = this.db.getConn();
+    if(connect){
+        connect.transaction(function(tx){
+            tx.executeSql('UPDATE todo_list SET list_name="'+element.name+'", category_id = "'+element.category_id+'"   WHERE rowid=\''+element.id+'\'', [], function (tx, result) {},
+                function(arg1, arg2){
+                    console.log('arg1'+arg1);
+                    console.log('arg2'+arg2);
+                    console.log('обновление прошло НЕ удачно');
+                });
+        })
+    }else{
+        var list_mass = JSON.parse(localStorage.getItem('todo_list'));
+        if(list_mass.length > 0){
+            for(var i=0; i< list_mass.length; i++){
+                if(list_mass[i].id == element.id){
+                    list_mass[i].name = element.name;
+                    list_mass[i].category_id = element.id;
+                    break;
+                }
+            }
+            localStorage.todo_list = JSON.stringify(list_mass);
+        }
+    }
 };

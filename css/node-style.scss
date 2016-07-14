@@ -209,7 +209,7 @@ input[type='text']{
   h2{
     @include H-text(16px);
   }
-  h2 > .deleteBtn, a{
+  h2 > a{
     margin-left: 10px;
   }
   .createTodo{
@@ -274,7 +274,7 @@ input[type='text']{
 .deleteBtn{
   @include sizeBtn();
   background:{
-    image: url('../images/garbage_1.png')
+    image: url('../images/garbage_2.png')
   }
   &:hover{
     cursor: pointer;
@@ -286,15 +286,32 @@ input[type='text']{
     box-shadow: 0 0 15px 2px temp-colors('input');
   }
 }
-.updateBtn{
+.settingBtn{
   @include sizeBtn();
   background: {
-    image: url('../images/writing_1.png');
+    image: url('../images/settings_gray.png');
   }
+  @include transition();
   &:hover{
     cursor: pointer;
     background: {
-      image: url('../images/writing_3.png');
+      image: url('../images/settings_main.png');
+      size: 90%;
+    };
+    @include transform(90deg);
+  }
+}
+.updateBtn{
+  @include sizeBtn();
+  background: {
+    image: url('../images/writing_3.png');
+  }
+  @include transition();
+  &:hover{
+    cursor: pointer;
+    background: {
+      image: url('../images/writing_2.png');
+      size: 90%;
     };
   }
 }
@@ -568,6 +585,9 @@ input[type='text']{
       margin-bottom: 10px;
     }
   }
+  &#settingList {
+    @extend #popUp;
+  }
   &#categoryUp .popUp{
     @media(min-width: 600px){
       width: 540px;
@@ -638,6 +658,9 @@ input[type='text']{
         background: temp-colors('main-hover');
         cursor: pointer;
       }
+    }
+    #editListBtn{
+      @extend #createList;
     }
     #createCategory{
       margin-top: 10px;

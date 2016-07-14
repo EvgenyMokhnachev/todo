@@ -107,27 +107,35 @@
 
         &.emptiness{
           background-color: temp-colors('emptiness');
+          border-color:  temp-colors('emptiness');
         }
         &.swuff{
           background-color: temp-colors('swuff');
+          border-color:  temp-colors('swuff');
         }
         &.radical{
           background-color: temp-colors('radical');
+          border-color:  temp-colors('radical');
         }
         &.cinnabar{
           background-color: temp-colors('cinnabar');
+          border-color:  temp-colors('cinnabar');
         }
         &.emerald{
           background-color: temp-colors('emerald');
+          border-color:  temp-colors('emerald');
         }
         &.saffron{
           background-color: temp-colors('saffron');
+          border-color:  temp-colors('saffron');
         }
         &.california{
           background-color: temp-colors('california');
+          border-color:  temp-colors('california');
         }
         &.turquoise{
           background-color: temp-colors('turquoise');
+          border-color:  temp-colors('turquoise');
         }
 
         &.house{
@@ -186,6 +194,14 @@
           @include selectImage('/images/category/pizza_white.png');
           @include transition();
         }
+        &.null{
+          @include selectImage('/images/category/panda_gray.png');
+          background:{
+            color: temp-colors('madang');
+          }
+          border-color: temp-colors('madang');
+          @include transition();
+        }
       }
 
       &:hover{
@@ -237,6 +253,13 @@
             image: url('/images/category/pizza_main.png');
             color: temp-colors('white');
           }
+        }
+        .null{
+          background:{
+            image: url('/images/category/panda_main.png');
+            color: temp-colors('white');
+          }
+          border-color: temp-colors('madang');
         }
       }
     }
