@@ -2,6 +2,8 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>To Do List</title>
 
     <link rel="stylesheet" type="text/css" href="css/node-style.css"/>
@@ -29,19 +31,19 @@
     </div>
     <div class="fonPopUp" id="popUp">
         <div class="popUp">
-            <form>
+            <form id="createList">
                 <h3>Create new list todo</h3>
                 <button type="button" id="closePopUp" class="closeBtn"></button>
                 <input id="newList" type="text" />
                 <p>Select category</p>
                 <div id="categorySelect"></div>
-                <button type="submit" id="createList">Create</button>
+                <button type="submit">Create</button>
             </form>
         </div>
     </div>
     <div class="fonPopUp" id="categoryUp">
         <div class="popUp">
-            <form>
+            <form id="createCategory">
                 <h3>Create new category</h3>
                 <button type="button" id="closePopUpCategory" class="closeBtn"></button>
                 <input id="inputCategory" type="text" />
@@ -67,7 +69,7 @@
                     <div class="radioBoxBlock"><input type="radio" name="image" id="bike"><label for="bike"></label></div>
                     <div class="radioBoxBlock"><input type="radio" name="image" id="pizza"><label for="pizza"></label></div>
                 </div>
-                <button type="submit" id="createCategory">Create</button>
+                <button type="submit">Create</button>
             </form>
         </div>
     </div>

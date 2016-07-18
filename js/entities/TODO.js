@@ -35,16 +35,18 @@ TODO.prototype.createDOM = function(){
     var editForm = document.createElement('form');
         todoItem.appendChild(self.settingEditForm(editForm));
 
-    editForm.getElementsByTagName('button')[0].onclick = function(){
-            if(editForm.getElementsByTagName('input')[0].value == ''){
-                addError(editForm.getElementsByTagName('button')[0]);
-            }else{
-                self.hideEditBlock(editForm.getElementsByTagName('input')[0], editForm.getElementsByTagName('button')[0], editBtn, removeBtn, checkBoxBlock);
-                self.saveTODO(function(){
-                    self.DOMTextObject.innerHTML = self.text;
-                });
-            }
-        };
+    editForm.onsubmit = function(event){
+        event.preventDefault();
+        if(editForm.getElementsByTagName('input')[0].value == ''){
+            addError(editForm.getElementsByTagName('button')[0]);
+        }else{
+            self.hideEditBlock(editForm.getElementsByTagName('input')[0], editForm.getElementsByTagName('button')[0], editBtn, removeBtn, checkBoxBlock);
+            self.saveTODO(function(){
+                self.DOMTextObject.innerHTML = self.text;
+            });
+        }
+        return false;
+    };
     this.DOMObject = todoItem;
     return todoItem;
 };
@@ -155,11 +157,6 @@ TODO. prototype.settingEditForm = function(editForm){
         removeClass(editInput, 'error');
     };
 
-    editForm.onsubmit = function(){
-        event.preventDefault();
-        saveBtn.click();
-        return false;
-    };
     return editForm;
 };
 

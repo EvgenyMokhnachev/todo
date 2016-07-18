@@ -34,34 +34,33 @@ document.getElementById('AddCategory').onclick = function(){
     document.getElementById('categoryUp').style.display = 'block';
 };
 
-document.getElementById('createList').onclick = function(){
+document.getElementById('createList').onsubmit = function(event){
+    //TODO убрать категории как основное поле
+    event.preventDefault();
     var self = this;
-    var selected = self.previousElementSibling.getElementsByTagName('span')[0].getAttribute('data-id');
+    var selected = document.getElementById('categorySelect').getElementsByTagName('span')[0].getAttribute('data-id');
     if(inputList.value == ""){
         addError(inputList);
         if(!selected){
-            self.previousElementSibling.getElementsByTagName('div')[1].style.borderColor = '#e64c65';
+            document.getElementById('categorySelect').getElementsByTagName('div')[1].style.borderColor = '#e64c65';
         }
         return false;
     }else{
-        if(selected){
+        //if(selected){
             listService.insert(inputList.value, selected);
             document.getElementsByClassName('container')[0].setAttribute('class', oldClassContainer);
             document.getElementById('popUp').style.display = 'none';
             inputList.value = "";
-        }else{
-            self.previousElementSibling.getElementsByTagName('div')[1].style.borderColor = '#e64c65';
-            return false;
-        }
+        //}else{
+        //    self.previousElementSibling.getElementsByTagName('div')[1].style.borderColor = '#e64c65';
+        //    return false;
+        //}
 
     }
-};
-document.getElementById('createList').onsubmit = function(){
-    event.preventDefault();
-    this.onclick();
     return false;
 };
-document.getElementById('createCategory').onclick = function(){
+document.getElementById('createCategory').onsubmit = function(event){
+    event.preventDefault();
     if(inputCategory.value == ""){
         addError(inputCategory);
         return false;
@@ -87,10 +86,6 @@ document.getElementById('createCategory').onclick = function(){
         });
         categoryService.insertCategory(nameCategory, color, img);
     }
-};
-document.getElementById('createCategory').onsubmit = function(){
-    event.preventDefault();
-    this.onclick();
     return false;
 };
 

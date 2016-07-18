@@ -644,28 +644,39 @@ input[type='text']{
       }
     }
 
-    #createList{
-      margin-top: 10px;
-      width: 100%;
-      @include buttonText();
-      text-transform: uppercase;
-      background: temp-colors('main');
-      border: 0;
-      padding: 10px 15px;
-      @include transition();
+    //#createList{
+      button[type = "submit"]{
+        margin-top: 10px;
+        width: 100%;
+        @include buttonText();
+        text-transform: uppercase;
+        background: temp-colors('main');
+        border: 0;
+        padding: 10px 15px;
+        @include transition();
 
-      &:hover{
-        background: temp-colors('main-hover');
-        cursor: pointer;
+        &:hover{
+          background: temp-colors('main-hover');
+          cursor: pointer;
+
+        }
       }
+    //}
+
+    .err{
+      background-color: white;
+
     }
-    #editListBtn{
-      @extend #createList;
-    }
-    #createCategory{
-      margin-top: 10px;
-      @extend #createList;
-    }
+    //#editListBtn button[type = "submit"]{
+    //  @extend #createList;
+    //}
+    //#createCategory button[type = "submit"]{
+    //  margin-top: 10px;
+    //  @extend #createList;
+    //}
+  }
+  a{
+
   }
 }
 

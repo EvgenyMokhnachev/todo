@@ -34,12 +34,8 @@ List.prototype.createDOM = function(){
     self.resultBlock = document.createElement('div');
     self.resultBlock.setAttribute('class', 'result');
     listItem.appendChild(self.resultBlock);
-    createBtn.onsubmit = function(event){
+    formBlock.onsubmit = function(event){
         event.preventDefault();
-        createBtn.click();
-        return false;
-    };
-    createBtn.onclick = function(){
         if (inputBlock.value == "") {
             addError(inputBlock);
         } else {
@@ -50,7 +46,20 @@ List.prototype.createDOM = function(){
             });
             inputBlock.value = "";
         }
+        return false;
     };
+    //createBtn.onclick = function(){
+    //    if (inputBlock.value == "") {
+    //        addError(inputBlock);
+    //    } else {
+    //        var todoText = inputBlock.value;
+    //        todoService.insert(todoText, self.id, function(todoItem){
+    //            self.resultBlock.appendChild(todoItem.createDOM());
+    //            initializationPlugin();
+    //        });
+    //        inputBlock.value = "";
+    //    }
+    //};
 
     this.DOMObject = listItem;
     return listItem;
@@ -125,15 +134,11 @@ List.prototype.editPopUp = function(){
         document.getElementsByTagName('body')[0].removeChild(fonPopUp);
     };
 
-    editBtn.onclick = function(){
+    form.onsubmit = function(event){
+        event.preventDefault();
         self.name = input.value;
         self.category_id = document.getElementById(selected.optionId).previousSibling.getElementsByTagName('span')[0].getAttribute('data-id');
         listService.updateList(self);
-    };
-
-    editBtn.onsubmit = function(event){
-        event.preventDefault();
-        editBtn.click();
         return false;
     };
     input.focus();

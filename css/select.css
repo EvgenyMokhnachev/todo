@@ -656,7 +656,7 @@ input[type='text'] {
       @media (max-width: 600px) {
         .fonPopUp .popUp .colorBlock {
           height: 100%; } }
-    .fonPopUp .popUp #createList, .fonPopUp .popUp #editListBtn, .fonPopUp .popUp #createCategory {
+    .fonPopUp .popUp button[type="submit"] {
       margin-top: 10px;
       width: 100%;
       font-family: "OpenSans-Bold", sans-serif;
@@ -684,11 +684,11 @@ input[type='text'] {
       -ms-transition-timing-function: "initial";
       -o-transition-timing-function: "initial";
       transition-timing-function: "initial"; }
-      .fonPopUp .popUp #createList:hover, .fonPopUp .popUp #editListBtn:hover, .fonPopUp .popUp #createCategory:hover {
+      .fonPopUp .popUp button[type="submit"]:hover {
         background: #239aa8;
         cursor: pointer; }
-    .fonPopUp .popUp #createCategory {
-      margin-top: 10px; }
+    .fonPopUp .popUp .err {
+      background-color: white; }
 
 .buttonLeft {
   position: fixed;
